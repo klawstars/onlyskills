@@ -780,6 +780,23 @@ function mapSellAuthCategory(category, imageById = new Map()) {
   };
 }
 
+function isSellAuthProductVisible(product) {
+  const visibility = String(product?.visibility || "").trim().toLowerCase();
+  const status = String(product?.status || "").trim().toLowerCase();
+  const privateFlag = product?.is_private === true || product?.private === true || product?.hidden === true;
+
+  if (privateFlag) {
+    return false;
+  }
+
+  const hiddenStates = new Set(["private", "hidden", "draft", "disabled", "archived", "inactive"]);
+  if (hiddenStates.has(visibility) || hiddenStates.has(status)) {
+    return false;
+  }
+
+  return true;
+}
+
 function mapSellAuthProduct(product, categoriesById, themeColor, imageById = new Map()) {
   const variantsRaw = ensureArray(product?.variants);
   const fallbackQuantityRange = normalizeQuantityRange(product?.quantity_min, product?.quantity_max);
@@ -986,7 +1003,7 @@ function mapSellAuthShop(shopData) {
     affiliate_enabled: true,
     affiliate_percentage: toNumber(shopData.affiliate_percentage, 10),
     affiliate_code_editable: true,
-    discord_url: shopData.discord_url || "#",
+    discord_url: "https://discord.gg/onlyskills",
     telegram_url: shopData.telegram_url || "#",
     instagram_url: shopData.instagram_url || "#",
     tiktok_url: shopData.tiktok_url || "#",
@@ -1031,7 +1048,7 @@ async function loadSellAuthLiveData(cacheKey) {
   const themeColor = currentSettings?.global?.properties?.theme_color || "#4A90D9";
 
   const mappedProducts = ensureArray(productsData)
-    .filter((product) => product?.type !== "addon")
+    .filter((product) => product?.type !== "addon" && isSellAuthProductVisible(product))
     .map((product) => mapSellAuthProduct(product, categoriesById, themeColor, imageById));
   const productById = new Map(mappedProducts.map((product) => [Number(product.id), product]));
 
@@ -1571,7 +1588,7 @@ async function createContext(req, templateName, routeData) {
     affiliate_enabled: true,
     affiliate_percentage: 10,
     affiliate_code_editable: true,
-    discord_url: "#",
+    discord_url: "https://discord.gg/onlyskills",
     telegram_url: "#",
     instagram_url: "#",
     tiktok_url: "#",

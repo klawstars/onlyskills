@@ -1,10 +1,9 @@
 {% set isLandingPage = templateName == 'shop' %}
 {% set isProductsPage = templateName == 'products' or templateName == 'product' %}
 {% set isStatusPage = templateName == 'status' %}
-{% set configuredLogoUrl = global.properties.navbar_logo_url %}
 {% set configuredSupportUrl = global.properties.navbar_support_url %}
 {% set configuredCustomerPanelUrl = global.properties.navbar_customer_panel_url %}
-{% set logoHref = (configuredLogoUrl if configuredLogoUrl else '/') | shopUrl %}
+{% set logoHref = '/' | shopUrl %}
 {% set supportHref = (configuredSupportUrl if configuredSupportUrl else ('/customer/tickets' if shop_customer else '/?login=1&back=tickets')) | shopUrl %}
 {% set customerPanelHref = (configuredCustomerPanelUrl if configuredCustomerPanelUrl else '/customer/dashboard') | shopUrl %}
 
@@ -85,7 +84,7 @@
   <template x-teleport="body">
     <div
       class="sa-unified-mobile"
-      x-show="mobileOpen"
+      x-show.important="mobileOpen"
       x-transition.opacity.duration.200ms
       @click.self="mobileOpen = false"
       x-cloak

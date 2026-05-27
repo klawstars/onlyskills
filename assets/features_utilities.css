@@ -23,11 +23,11 @@
   gap: 0.4rem;
   padding: 0.3rem 0.8rem;
   margin-bottom: 0.75rem;
-  background: rgba(74, 144, 217, 0.08);
-  border: 1px solid rgba(74, 144, 217, 0.15);
+  background: rgba(217, 74, 74, 0.08);
+  border: 1px solid rgba(217, 74, 74, 0.15);
   border-radius: 9999px;
   font-size: 0.75rem;
-  color: #4A90D9;
+  color: #D94A4A;
 }
 
 #ux-features .ux-f-badge svg {
@@ -107,8 +107,8 @@
 }
 
 #ux-features .ux-f-card:hover {
-  border-color: rgba(74, 144, 217, 0.12);
-  box-shadow: 0 0 30px rgba(74, 144, 217, 0.03);
+  border-color: rgba(217, 74, 74, 0.12);
+  box-shadow: 0 0 30px rgba(217, 74, 74, 0.03);
 }
 
 #ux-features .ux-f-card-visual {
@@ -148,7 +148,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  background: radial-gradient(circle at center, rgba(74, 144, 217, 0.03) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(217, 74, 74, 0.03) 0%, transparent 70%);
   overflow: hidden;
 }
 
@@ -160,7 +160,7 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: radial-gradient(circle at center, rgba(74, 144, 217, 0.06) 0%, rgba(74, 144, 217, 0.02) 30%, transparent 65%);
+  background: radial-gradient(circle at center, rgba(217, 74, 74, 0.06) 0%, rgba(217, 74, 74, 0.02) 30%, transparent 65%);
 }
 
 .shield-icon {
@@ -168,18 +168,18 @@
   z-index: 2;
   width: 24px;
   height: 24px;
-  filter: drop-shadow(0 0 8px rgba(74, 144, 217, 0.25));
+  filter: drop-shadow(0 0 8px rgba(217, 74, 74, 0.25));
   animation: ux-f-shield-pulse 3s ease-in-out infinite;
 }
 
 @keyframes ux-f-shield-pulse {
   0%, 100% {
     transform: scale(1);
-    filter: drop-shadow(0 0 8px rgba(74, 144, 217, 0.25)) drop-shadow(0 0 20px rgba(74, 144, 217, 0.1));
+    filter: drop-shadow(0 0 8px rgba(217, 74, 74, 0.25)) drop-shadow(0 0 20px rgba(217, 74, 74, 0.1));
   }
   50% {
     transform: scale(1.05);
-    filter: drop-shadow(0 0 12px rgba(74, 144, 217, 0.35)) drop-shadow(0 0 30px rgba(74, 144, 217, 0.15));
+    filter: drop-shadow(0 0 12px rgba(217, 74, 74, 0.35)) drop-shadow(0 0 30px rgba(217, 74, 74, 0.15));
   }
 }
 
@@ -200,7 +200,7 @@
 .wave {
   position: absolute;
   border-radius: 50%;
-  border: 1.5px solid rgba(74, 144, 217, 0.5);
+  border: 1.5px solid rgba(217, 74, 74, 0.5);
   animation: ux-f-wave-expand 5s ease-out infinite;
 }
 
@@ -241,7 +241,7 @@
 }
 
 #ux-features .ux-f-delivery-status {
-  color: #4A90D9;
+  color: #D94A4A;
   font-size: 0.78rem;
   font-weight: 600;
 }
@@ -268,9 +268,9 @@
 #ux-features .ux-f-delivery-bar-fill {
   width: 0%;
   height: 100%;
-  background: linear-gradient(90deg, #4A90D9, #6BA3E0);
+  background: linear-gradient(90deg, #D94A4A, #E06B6B);
   border-radius: 4px;
-  box-shadow: 0 0 6px rgba(74, 144, 217, 0.3);
+  box-shadow: 0 0 6px rgba(217, 74, 74, 0.3);
   animation: ux-f-progress-fill 7s ease-in-out infinite;
 }
 
@@ -297,12 +297,12 @@
   height: 30px;
   min-width: 30px;
   border-radius: 8px;
-  background: rgba(74, 144, 217, 0.1);
-  border: 1px solid rgba(74, 144, 217, 0.15);
+  background: rgba(217, 74, 74, 0.1);
+  border: 1px solid rgba(217, 74, 74, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #4A90D9;
+  color: #D94A4A;
 }
 
 #ux-features .ux-f-delivery-details-text {
@@ -337,7 +337,7 @@
 #ux-features .ux-f-support-text span {
   font-size: 48px;
   font-weight: 700;
-  background: linear-gradient(135deg, #4A90D9 0%, #6BA3E0 50%, #1B3A6B 100%);
+  background: linear-gradient(135deg, #D94A4A 0%, #E06B6B 50%, #6B1B1B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -391,9 +391,9 @@
 }
 
 #ux-features .ux-f-menu-icon.ux-f-menu-icon-active {
-  border-color: rgba(74, 144, 217, 0.4);
-  background: rgba(74, 144, 217, 0.08);
-  color: #4A90D9;
+  border-color: rgba(217, 74, 74, 0.4);
+  background: rgba(217, 74, 74, 0.08);
+  color: #D94A4A;
 }
 
 #ux-features .ux-f-menu-icon.ux-f-menu-icon-hidden {
@@ -446,12 +446,12 @@
 }
 
 #ux-features .ux-f-toggle input:checked + .ux-f-toggle-slider {
-  background: rgba(74, 144, 217, 0.3);
+  background: rgba(217, 74, 74, 0.3);
 }
 
 #ux-features .ux-f-toggle input:checked + .ux-f-toggle-slider::after {
   transform: translateX(18px);
-  background: #4A90D9;
+  background: #D94A4A;
 }
 
 #ux-features .ux-f-range {
@@ -472,7 +472,7 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: #4A90D9;
+  background: #D94A4A;
   cursor: pointer;
 }
 
@@ -480,7 +480,7 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: #4A90D9;
+  background: #D94A4A;
   border: none;
   cursor: pointer;
 }

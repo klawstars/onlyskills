@@ -12,21 +12,19 @@
     }
   }"
   class="hero alignment-{{ properties.alignment }} height-{{ properties.height }} component ux-hero"
-  style="{% if bgImageUrl %}background-image: url('{{ bgImageUrl }}');{% endif %} display: flex; align-items: center; justify-content: center; position: relative;"
+  style="{% if bgImageUrl %}background-image: url('{{ bgImageUrl }}');{% endif %} display: flex; align-items: center; justify-content: center; position: relative; min-height: calc(100dvh + 80px) !important; height: calc(100dvh + 80px) !important; margin-top: -80px !important; overflow: hidden;"
   data-component-id="{{ componentId }}"
 >
-  <div class="bg-overlay"></div>
-
-  <div class="light-container">
-    <div class="light-rays"></div>
-  </div>
-
-  <div class="ux-hero-glow"></div>
-
-  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(74, 144, 217, 0.15) 0%, transparent 70%); filter: blur(80px); border-radius: 9999px; pointer-events: none; z-index: 3;"></div>
-
-  <div class="ux-hero-characters" style="position: absolute; top: 50%; left: 51%; transform: translate(-50%, -50%); z-index: 5; width: 100%; max-width: 1700px; opacity: 0.15; pointer-events: none;">
-    <img src="https://i.imgur.com/qTnBG3E.png" alt="Characters" style="width: 100%; height: auto; object-fit: contain;">
+  <div class="ux-hero-characters" style="position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; opacity: 1; pointer-events: none; overflow: hidden;">
+    <video
+      src="/assets/video.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      style="width: 100%; height: 100%; object-fit: cover; object-position: center center; filter: brightness(0.62) saturate(0.82) blur(1.2px); transform: none;"
+    ></video>
   </div>
 
   <div class="container" style="max-width: 1200px; margin: 0 auto; text-align: center; position: relative; z-index: 10;">
@@ -71,12 +69,10 @@
   </div>
 
   <div class="ux-scroll-arrow" onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'})">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A90D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D94A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="6 9 12 15 18 9"></polyline>
     </svg>
   </div>
-
-  <div class="ux-hero-fade-bottom"></div>
 
   {% if properties.show_searchbar %}
   <div class="modal fade search-modal" id="searchModal" x-data="searchModal" tabindex="-1" aria-hidden="true">

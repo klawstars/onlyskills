@@ -1,7 +1,15 @@
-{% set hasCollection = route_category_slug and route_category_slug|length > 0 %}
+{% set hasRouteCollection = route_category_slug and route_category_slug|length > 0 %}
 {% set collectionName = (current_collection.name if current_collection and current_collection.name else '') %}
-{% set listingProducts = (collection_products if collection_products else []) %}
 {% set listingGroups = (groups_listing if groups_listing else []) %}
+{% set listingProducts = (collection_products if collection_products else []) %}
+{% if not hasRouteCollection %}
+  {% if all_products and all_products|length > 0 %}
+    {% set listingProducts = all_products %}
+  {% elif products and products|length > 0 %}
+    {% set listingProducts = products %}
+  {% endif %}
+{% endif %}
+{% set hasCollection = hasRouteCollection or (not hasRouteCollection and listingProducts|length > 0) %}
 
 <section
   class="sa-plp component py-5-nav"

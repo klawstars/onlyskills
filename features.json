@@ -1,932 +1,239 @@
 {
   "products": {
-"576480": {
+    "135331": {
       "features": [
         {
-          "title": "Aimbot & Precision",
+          "title": "System Compatibility",
           "items": [
-            "Mouse & Controller Support",
-            "Target Bone: Head, Neck, Chest",
-            "Advanced Prediction & Priority",
-            "Aim FOV & Smoothness Sliders",
-            "Controller Aim Assist Strength"
+            "Windows 10 & 11 All Versions",
+            "All CPU & GPU Components",
+            "Global Region Server Support",
+            "Core Isolation Compatibility",
+            "Hardware Profile Saving"
           ]
         },
         {
-          "title": "Visuals & ESP",
+          "title": "Profile & Configuration",
           "items": [
-            "Box & Skeleton ESP",
-            "Player Name, Health & Distance",
-            "Visible / Invisible Color Coding",
-            "AI & Player Distinction Filter",
-            "Custom ESP Render Distance"
-          ]
-        },
-        {
-          "title": "Advanced Radar",
-          "items": [
-            "Mobile Shared Radar (QR Code)",
-            "Radar Scale & Opacity Control",
-            "Enemies & Teammates Display",
-            "Directional Movement Sync",
-            "External Web/Phone Overlay"
-          ]
-        },
-        {
-          "title": "Misc & Exploits",
-          "items": [
-            "No Recoil & No Spread",
-            "Triggerbot & Auto Reload",
-            "Hold Breath Assist Integration",
-            "Save / Load / Auto-Load Config",
-            "FPS Display & Menu Theme"
+            "Unlock All Weapon Skins",
+            "Unlock All Weapon Buddies",
+            "Unlock All Finisher Animations",
+            "Save Custom User Configs",
+            "Direct System Validation"
           ]
         }
       ]
     },
-    "576485": {
+    "146327": {
       "features": [
         {
-          "title": "General Information",
+          "title": "System Requirements",
           "items": [
-            "Works for all popular games",
-            "TPM Bypass NOT included",
-            "Fortnite Tourney Support / Cleaners"
+            "Windows 10 & 11 All Versions",
+            "AMD & Intel Processors",
+            "All Motherboard Brands Supported",
+            "Secure Boot & TPM Compatibility",
+            "HVCI Security Integration"
           ]
         },
         {
-          "title": "Requirements",
+          "title": "Features",
           "items": [
-            "CPU: Intel / AMD",
-            "OS: Windows 10 / 11",
-            "USB: 8GB",
-            "Action: Windows Re-install",
-            "Action: Flash BIOS"
-          ]
-        },
-        {
-          "title": "Supported Motherboards",
-          "items": [
-            "ASUS",
-            "Gigabyte",
-            "Colorful",
-            "Biostar",
-            "MSI",
-            "Evga",
-            "Asrock",
-            "Microstar",
-            "Aorus",
-            "HP"
-          ]
-        },
-        {
-          "title": "Supported Games",
-          "items": [
-            "League of Legends",
-            "Fortnite (Tournaments included)",
-            "Apex Legends",
-            "Rust",
-            "Valorant",
-            "Rainbow Six Siege",
-            "Overwatch 2",
-            "Dark and Darker",
-            "& MORE"
+            "No Valorant Reinstallation Required",
+            "No Windows Reinstallation Needed",
+            "No Flash BIOS Operations",
+            "No Game Restart Necessary",
+            "One-Click Instant Automated Setup"
           ]
         }
       ]
     },
-"576486": {
+    "145440": {
       "features": [
         {
-          "title": "Hardware Spoofing",
+          "title": "System Requirements",
           "items": [
-            "Hypervisor Temp Serial Changer",
-            "Changes All Hardware Identifiers",
-            "Advanced TPM Spoofing Included",
-            "System Components Modification",
-            "Custom Seeding System"
-          ]
-        },
-        {
-          "title": "Cleaning & Security",
-          "items": [
-            "Fortnite Tournament Cleaner",
-            "Deep System Trace Cleaner",
-            "Integrated Serial Checker",
-            "Configurable Spoofing Settings",
-            "UEFI Mode Security Bypass"
-          ]
-        },
-        {
-          "title": "Compatibility",
-          "items": [
-            "Supports Windows 10 & 11",
-            "Intel & AMD CPU Compatible",
+            "Windows 10 & 11 All Versions",
+            "AMD & Intel Processors",
             "All Motherboards Supported",
-            "No Bios Flash Required",
-            "Instant HWID Stealth"
+            "Locked & Unlocked BIOS Compatibility",
+            "Hardware Environment Validation"
           ]
         },
         {
-          "title": "Supported Games",
+          "title": "Anti-Cheat Bypass",
           "items": [
-            "Fortnite (Tournament Ready)",
-            "Apex, Rust & R6 Siege",
-            "EFT & Call of Duty",
-            "FiveM & Dead by Daylight",
-            "Universal Anti-Cheat Bypass"
-          ]
+            "Vanguard Automated Global Unban",
+            "EasyAntiCheat Global Network Unban",
+            "BattlEye Engine Hardware Unban",
+            "Ricochet Kernel Security Unban",
+            "FaceIt Platform System Unban"
+]
         }
       ]
     },
-"585799": {
+    "234286": {
       "features": [
         {
-          "title": "Aimbot & Targeting",
-          "items": [
-            "Custom Aim Key & Lock System",
-            "FOV, Smooth & Sensitivity Sliders",
-            "Target Bone: Head, Neck, Body",
-            "Nearest Bone Dynamic Logic",
-            "Performance-Optimized Tracking"
-          ]
-        },
-        {
-          "title": "Visuals & ESP",
-          "items": [
-            "Box & Skeleton ESP",
-            "Skeleton Thickness Adjustment",
-            "Snaplines & Line Thickness",
-            "Real-time Health Status",
-            "High-Vis Enemy Outlines"
-          ]
-        },
-        {
-          "title": "Abilities & Hero Info",
-          "items": [
-            "Full Ability ESP (All Characters)",
-            "Adjustable Ability Icon Size",
-            "Tactical Ability Timers",
-            "Ultimate Status Tracking",
-            "Clean Performance Overlay"
-          ]
-        },
-        {
-          "title": "Config & System",
-          "items": [
-            "Save, Load & Delete Configs",
-            "Instant Cloud Config Sharing",
-            "Windows 10 & 11 (Intel/AMD)",
-            "External Safe Architecture",
-            "Low-Latency Execution"
-          ]
-        }
-      ]
-    },
-"585817": {
-      "features": [
-        {
-          "title": "Aimbot & Targeting",
-          "items": [
-            "Selected, Closest or Random Bone",
-            "Visibility Check & Smoothness",
-            "Dual Keybind & FOV Customization",
-            "Targets: Players, BOTs & Teams",
-            "Advanced Prediction & Max Distance"
-          ]
-        },
-        {
-          "title": "Player Visuals",
-          "items": [
-            "Box & Skeleton (Static/Gradient)",
-            "Dynamic Health Bar & View Lines",
-            "Name, Distance & Team Filter",
-            "Visibility Check & Transparency",
-            "Head Circle & Thickness Control"
-          ]
-        },
-        {
-          "title": "World & Items ESP",
-          "items": [
-            "Container & Dropped Items ESP",
-            "Drone & Quest Item Tracking",
-            "Show Item Count & Distance",
-            "No Recoil & No Spread Exploits",
-            "Customizable Render Distance"
-          ]
-        },
-        {
-          "title": "Radar & System",
-          "items": [
-            "2D Radar with Zoom & Scale",
-            "Entity Filter (AI, Players, Team)",
-            "Multi-language (EN, RU, CN)",
-            "DPI Scale & FPS Limiter",
-            "Theme Customization (Murky/Sunny)"
-          ]
-        }
-      ]
-    },
-"625265": {
-      "features": [
-        {
-          "title": "Advanced Combat",
-          "items": [
-            "Aimbot: Static, Curved & Prediction",
-            "Weapon Profiles: Sniper, Shotgun, SMG+",
-            "Targeting: Visible, Locked & Knocked",
-            "Nearest Bone & Force Bone Logic",
-            "Triggerbot: Custom Delays & Firing Time"
-          ]
-        },
-        {
-          "title": "Player Visuals",
-          "items": [
-            "Box, Skeleton & Snapline ESP",
-            "Skeleton Thickness & Custom Fonts",
-            "Rank, Platform, Kills & Weapon ESP",
-            "Unique Team ESP Color Coding",
-            "Draw AI & Max Distance Sliders"
-          ]
-        },
-        {
-          "title": "Loot & World",
-          "items": [
-            "Advanced Loot & Item ESP Filters",
-            "Rarity Display (Always / On Hover)",
-            "Loot Color & Distance Customization",
-            "2D Radar with Adjustable Size",
-            "Text Size & Crosshair Scaling"
-          ]
-        },
-        {
-          "title": "System & Config",
-          "items": [
-            "FPS Locker & Overlay Performance",
-            "Save, Load & Share Config System",
-            "English & Chinese Language Support",
-            "External Precision Engine",
-            "Stream-Safe & Low Latency"
-          ]
-        }
-      ]
-    },
-"625266": {
-      "features": [
-        {
-          "title": "Aimbot & Targeting",
-          "items": [
-            "Mouse & Memory Aim Types",
-            "Smooth, Prediction & Target Line",
-            "Visible Check & Target Lock",
-            "Custom Bone & Distance Filters",
-            "FOV Radius & Prediction Dot"
-          ]
-        },
-        {
-          "title": "Player Visuals",
-          "items": [
-            "Box, Skeleton & Squad ESP",
-            "Health & Armor Bar Indicators",
-            "Visible / Invisible Color Coding",
-            "Off-Screen Enemy Track Arrows",
-            "Adjustable Max Render Distance"
-          ]
-        },
-        {
-          "title": "World & Loot ESP",
-          "items": [
-            "Crates, Drones & Supply Stations",
-            "Dropped Items, Corpses & Salvage",
-            "Individual Setup for Every Item",
-            "Draw Icons, Names & Dot Markers",
-            "Distance Limits & Custom Colors"
-          ]
-        },
-        {
-          "title": "System & Battle Mode",
-          "items": [
-            "Battle Mode: Instant Visual Filter",
-            "Config System (Add, Load, Share)",
-            "Dynamic 2D Radar & Scale",
-            "Low Latency Performance",
-            "Windows 10/11 (Intel/AMD)"
-          ]
-        }
-      ]
-    },
-"625268": {
-      "features": [
-        {
-          "title": "Combat Enhancements",
-          "items": [
-            "Aimbot, Aim Lock & Triggerbot",
-            "No Recoil & Rapid Fire Systems",
-            "Wallbang & Hit Group Filtering",
-            "Anti-Aim (HVA) & Desync Logic",
-            "Custom Smoothness & FOV Sliders"
-          ]
-        },
-        {
-          "title": "Visual Intelligence",
-          "items": [
-            "ESP: Health, Distance & Weapon",
-            "Chams & Colored Player Outlines",
-            "Sound ESP (Footsteps & Gunfire)",
-            "Radar Mini-map Overlay",
-            "Visual Enhancement Effects"
-          ]
-        },
-        {
-          "title": "Movement & Skins",
-          "items": [
-            "Bunny Hop & Speed Boost",
-            "Enhanced Movement System",
-            "Full Inventory & Skin Changer",
-            "Weapon & Gear Modifications",
-            "Hit-Evasion Mobility Logic"
-          ]
-        },
-        {
-          "title": "System & Security",
-          "items": [
-            "Advanced Anti-Detection Systems",
-            "Cloud CFG (Save/Load/Share)",
-            "Real-time In-game Menu",
-            "User-Friendly Intuitive Interface",
-            "Quick Adjustment Hotkeys"
-          ]
-        }
-      ]
-    },
-"625269": {
-      "features": [
-        {
-          "title": "Combat & Aim",
-          "items": [
-            "Aimbot with Speed & FOV Control",
-            "Retarget & Detach Time Settings",
-            "Magnetic Triggerbot & Threshold",
-            "Filter: Team & Invisible Players",
-            "Draw Aimbot FOV Visualizer"
-          ]
-        },
-        {
-          "title": "Visual Intelligence",
-          "items": [
-            "Glow, Skeleton & Head Dot ESP",
-            "Health, Ammo & Armor Bars",
-            "Visible / Invisible / Knocked Colors",
-            "Hero Name & Weapon Display",
-            "Out of FOV Tracking Arrows"
-          ]
-        },
-        {
-          "title": "World & Loot",
-          "items": [
-            "Full Item Glow & Text Rendering",
-            "Weapon Filter (Sniper, AR, SMG+)",
-            "Meds, Optics & Attachments ESP",
-            "Nades & Equipment Highlighting",
-            "Customizable Loot Render Distance"
-          ]
-        },
-        {
-          "title": "Movement & System",
-          "items": [
-            "Bhop, Tap Strafe & Wall Jump",
-            "Medal.tv Stream-Proof Support",
-            "Config System (Load/Save/Delete)",
-            "Windows 10/11 & Intel/AMD",
-            "Low Latency Kernel Driver"
-          ]
-        }
-      ]
-    },
-"626791": {
-      "features": [
-        {
-          "title": "Aimbot & Combat",
-          "items": [
-            "Silent Aim & Vector Aimbot",
-            "Target Prediction & Smoothness",
-            "Bone Selection & Max Distance",
-            "Ignore Sleepers, Bots & AI",
-            "Draw FOV Circle & Target Line"
-          ]
-        },
-        {
-          "title": "Player Visuals",
-          "items": [
-            "Boxes, Skeletons & Nicknames",
-            "Held Item, Hot Bar & Wear Bar",
-            "Player & Bot Chams (Custom Styles)",
-            "Rank, Level & Score Display",
-            "Hide Teammates & Show Sleepers"
-          ]
-        },
-        {
-          "title": "World & Resource ESP",
-          "items": [
-            "TC, Workbench & Storage Boxes",
-            "Ores (Sulfur, Metal, Stone, Wood)",
-            "Crates, Barrels & Dropped Items",
-            "Sleeping Bags, Corpses & Animals",
-            "Hemp, Food & Supply Tracking"
-          ]
-        },
-        {
-          "title": "Misc & System",
-          "items": [
-            "No Recoil, No Spread & No Sway",
-            "Combat Mode Hotkey Toggle",
-            "Config System (Create/Load/Delete)",
-            "Windows 10/11 (W11 25H2 Ready)",
-            "Custom Crosshair & Font Scaling"
-          ]
-        }
-      ]
-    },
-"660869": {
-      "features": [
-        {
-          "title": "Aimbot Precision",
-          "items": [
-            "Multipoint Bone Selection",
-            "Smoothing & FOV Adjustment",
-            "Distance Check Verification",
-            "Target Filter: Crosshair & Range",
-            "Team Exclusion Logic"
-          ]
-        },
-        {
-          "title": "Visual Intelligence",
-          "items": [
-            "Skeleton & Box ESP",
-            "Head Marker & Name Display",
-            "2D Radar & FOV Circle",
-            "Distance Tracking & Team Filter",
-            "Real-time Enemy Awareness"
-          ]
-        },
-        {
-          "title": "Streamproof Security",
-          "items": [
-            "GeForce & OBS Streamproof",
-            "Medal & Game-Capture Hidden",
-            "Fully External Execution",
-            "Kernel-Level Stealth Driver",
-            "Bypass Capture Signatures"
-          ]
-        },
-        {
-          "title": "System & Config",
-          "items": [
-            "Save & Export Config System",
-            "FPS Lock Performance Control",
-            "Supports Intel & AMD CPUs",
-            "Windows 10 & 11 Compatible",
-            "Low-Resource Background Usage"
-          ]
-        }
-      ]
-    },
-"660883": {
-      "features": [
-        {
-          "title": "Combat & Triggerbot",
-          "items": [
-            "Aimbot: Smooth, VisCheck & Player Lock",
-            "Dynamic Bone: Selected or Closest",
-            "Triggerbot: Magnetic & Fast Swap",
-            "Recoil Control System (RCS)",
-            "Auto-Pistol Continuous Shooting"
-          ]
-        },
-        {
-          "title": "Tactical Visuals",
-          "items": [
-            "Box, Skeleton & Snaplines (Gradient)",
-            "Health & Armor Bars (Always/Smart)",
-            "Main/Side Weapon & Ammo Tracking",
-            "Position Name & Distance Display",
-            "Anti-Flash & Sniper Crosshair Styles"
-          ]
-        },
-        {
-          "title": "World & Utility",
-          "items": [
-            "Dropped Items: Text or Icon Rendering",
-            "C4, Defuser & Bomb Timer Tracking",
-            "Map Ray Tracer & Advanced Radar",
-            "Bunny Hop & Tactical Ray Tracing",
-            "Hover Opacity & Circle Indicators"
-          ]
-        },
-        {
-          "title": "System & Config",
-          "items": [
-            "Cloud Sync: Get Shared Config by Key",
-            "Menu Themes (Murky/Sunny) & DPI Scale",
-            "Multi-language (EN, RU, CH)",
-            "Secure Unload & VSync Support",
-            "Watermark & FPS Optimization"
-          ]
-        }
-      ]
-    },
-"660887": {
-      "features": [
-        {
-          "title": "Aimbot & Combat",
-          "items": [
-            "Legit & Rage Modes with Prediction",
-            "Weapon-Specific Custom Configs",
-            "Targets: Players, Bots & Team",
-            "Visible Check & FOV Customization",
-            "No Recoil & Dynamic Smoothing"
-          ]
-        },
-        {
-          "title": "Player Intelligence",
-          "items": [
-            "2D/Corner Box (Static/Gradient Fill)",
-            "Skeleton & View Line Tracking",
-            "Held Weapon, Ammo & Reload Status",
-            "Platform, Nickname & Vehicle Detection",
-            "Out of FOV Tracking Arrows"
-          ]
-        },
-        {
-          "title": "World & Loot ESP",
-          "items": [
-            "Item Rarity: Common to Mythic",
-            "Chests & Ammunition Box Tracking",
-            "Vehicle, Zipline & Machine Redux",
-            "Battle Mode Filter & Render Distance",
-            "Custom Loot ESP Color Coding"
-          ]
-        },
-        {
-          "title": "System & Security",
-          "items": [
-            "Built-in HWID Spoofer Included",
-            "Config System (Save/Load/Share)",
-            "Multi-language (ENG, RUS, CNY)",
-            "Performance: VSync, FPS & DPI Scale",
-            "Themes (Light/Dark) & Accent Colors"
-          ]
-        }
-      ]
-    },
-"660890": {
-      "features": [
-        {
-          "title": "Aimbot & Combat",
-          "items": [
-            "Silent Aimbot & Hitbox Selection",
-            "Thick Bullet & Head Hitbox Override",
-            "No Recoil, Spread, Sway & Slowdown",
-            "Instant Eoka, Bow & Compound",
-            "Fire Rate & Long Hit Modification"
-          ]
-        },
-        {
-          "title": "Movement & Exploits",
-          "items": [
-            "Flyhack, Spiderman & Omni Sprint",
-            "Debug Camera & Shoot While Jumping",
-            "Fast Loot & Farm Assist System",
-            "Bright Night, Caves & X-Ray Vision",
-            "Zoom FOV & World Layer Removal"
-          ]
-        },
-        {
-          "title": "Player Intelligence",
-          "items": [
-            "Box, Skeleton & View Angles ESP",
-            "Target: Enemy, Team, Bot & Sleepers",
-            "Out of FOV Arrows & Distance Info",
-            "Visible Check & Team Indexing",
-            "Fully Draggable & Customizable UI"
-          ]
-        },
-        {
-          "title": "World ESP & Config",
-          "items": [
-            "Prefab Search Bar & Custom Colors",
-            "Individual Toggle for All Game Items",
-            "Save/Load Config & Combat Mode",
-            "Developer Mode & FPS Overlay",
-            "Windows 10/11 (Intel & AMD)"
-          ]
-        }
-      ]
-    },
-"660900": {
-      "features": [
-        {
-          "title": "Combat & Aimbot",
-          "items": [
-            "Aimbot with Prediction & Smooth",
-            "Recoil Control System (RCS X/Y)",
-            "Dynamic Bone Selection (Head/Body)",
-            "Visibility Check & Switch Delay",
-            "Dual Keybind & FOV Customization"
-          ]
-        },
-        {
-          "title": "Visuals & Chams",
-          "items": [
-            "Advanced Chams (Pulse, Rainbow, Glow)",
-            "Box, Skeleton & Legend Name ESP",
-            "Health & Shield Bar (Shield-Based)",
-            "Spectator List (Count & Window)",
-            "Out of FOV Tracking & Glow Weapon"
-          ]
-        },
-        {
-          "title": "Movement & Skills",
-          "items": [
-            "Tap Strafe, Super Glide & Wall Jump",
-            "Bunny Hop & Automatic Strafe",
-            "Full Skinchanger (All Weapons)",
-            "2D Radar with Zoom & Distance",
-            "HWID Spoofer Included"
-          ]
-        },
-        {
-          "title": "World & Utility",
-          "items": [
-            "Loot ESP: Tier Filter (White to Red)",
-            "Category Filter (Armor, Meds, Ammo)",
-            "Battle Mode Toggle (Clean Combat)",
-            "Save/Load Config System",
-            "English & Chinese Menu Support"
-          ]
-        }
-      ]
-    },
-"660926": {
-      "features": [
-        {
-          "title": "Aimbot & Targeting",
-          "items": [
-            "Silent & Memory Aim with Smoothness",
-            "Hit Chance & Prediction Dot System",
-            "Bones: Head, Neck, Stomach & Closest",
-            "Filters: Enemies, NPCs, Sleepers & Friends",
-            "Target Lock with Aim Line Visualizer"
-          ]
-        },
-        {
-          "title": "Visuals & Chams",
-          "items": [
-            "Player, Hand & Weapon Chams (14 Styles)",
-            "Box, Skeleton, Look Direction & Alerts",
-            "Belt Item Icons with Adjustable Scale",
-            "Off-Screen Arrows & Explosive Flags",
-            "Chams Styles: Glow, Pulse, Glass & More"
-          ]
-        },
-        {
-          "title": "World & Raid Intel",
-          "items": [
-            "Raid ESP: C4, Rockets, Satchels & Timers",
-            "Resource tracking: Ores, Crates & Animals",
-            "Trap, Transport & Deployable Highlighting",
-            "Custom Colors for Each Object Category",
-            "Limit Distance & Rendering Sliders"
-          ]
-        },
-        {
-          "title": "Misc & Environment",
-          "items": [
-            "Debug Camera, Zoom & Last Death Pos",
-            "Bright Night, Bright Caves & Time Changer",
-            "Remove Layers: Water, Trees, Grass & World",
-            "Battle Mode, Panic Button & Streamproof",
-            "English/Chinese Support & Font Selection"
-          ]
-        }
-      ]
-    },
-"661167": {
-      "features": [
-        {
-          "title": "Aimbot & Targeting",
-          "items": [
-            "Normal & Assistance Modes",
-            "Sticky or Dynamic Target Logic",
-            "Custom Hitbox & Visibility Check",
-            "Preference: Crosshair or Distance",
-            "Speed, FOV & Distance Control"
-          ]
-        },
-        {
-          "title": "Triggerbot & Combat",
-          "items": [
-            "Magnetic Triggerbot Support",
-            "Custom Hitbox Selection Filter",
-            "Target: Players, Bots & Team",
-            "Ignore Knocked & Visible Only",
-            "Visualize Target & FOV Radius"
-          ]
-        },
-        {
-          "title": "Visual Intelligence",
-          "items": [
-            "Box, Skeleton & Head Dot ESP",
-            "Weapon, Distance & Player Name",
-            "Out of FOV Tracking Arrows",
-            "Filter: Enemy, Team & Bots",
-            "Fully Draggable ESP Interface"
-          ]
-        },
-        {
-          "title": "World & System",
-          "items": [
-            "Loot ESP: Common to Unattainable",
-            "Max Render Distance & Overlay FPS",
-            "Config System (Load/Save/Delete)",
-            "Developer Mode & HWID Spoofer",
-            "Windows 10/11 (Intel & AMD)"
-          ]
-        }
-      ]
-    },
-"661182": {
-      "features": [
-        {
-          "title": "Aimbot Systems",
-          "items": [
-            "Precision Speed & FOV Control",
-            "Hitbox Selection & Distance Limit",
-            "Retarget & Detach Time Logic",
-            "Invisible Target Filtering",
-            "Draw Aimbot FOV Visualizer"
-          ]
-        },
-        {
-          "title": "Triggerbot",
-          "items": [
-            "Magnetic Triggerbot Support",
-            "Hitbox Selection & Expansion",
-            "Invisible Player Filtering",
-            "Custom Retarget Time Delay",
-            "High-Precision Auto-Firing"
-          ]
-        },
-        {
-          "title": "Player Intelligence",
-          "items": [
-            "Box, Skeleton & Head Dot ESP",
-            "Visible & Team Status Indicators",
-            "Out of FOV Tracking Arrows",
-            "Name & Distance Display",
-            "Fully Draggable ESP Overlay"
-          ]
-        },
-        {
-          "title": "System & Config",
-          "items": [
-            "Config Management (Add/Save/Load)",
-            "Overlay FPS & Developer Mode",
-            "Windows 10 & 11 (Intel/AMD)",
-            "Low Latency Performance",
-            "Stream-Safe Stealth Driver"
-          ]
-        }
-      ]
-    },
-"670139": {
-      "features": [
-        {
-          "title": "Unlock All Core",
-          "items": [
-            "Soft Unlock: Every In-game Item",
-            "Instant Operator Access",
-            "Unlock All Weapon Camos",
-            "Calling Cards Collection",
-            "Prestige Master Icons Unlock"
-          ]
-        },
-        {
-          "title": "Security & Spoofer",
-          "items": [
-            "Built-in HWID Spoofer Included",
-            "Bypass Hardware Bans (Non-TPM)",
-            "Anti-Detection Measures",
-            "Safe Injection Method",
-            "Quick Hardware Stealth"
-          ]
-        },
-        {
-          "title": "Customization",
-          "items": [
-            "Access to Rare/Legacy Items",
-            "Special Event Gear Unlock",
-            "Profile Customization Tools",
-            "Emblem & Master Icon Sync",
-            "Universal Item Support"
-          ]
-        },
-        {
-          "title": "System Support",
-          "items": [
-            "Supports Windows 10 & 11",
-            "Intel & AMD CPU Compatible",
-            "User-Friendly Interface",
-            "Real-Time Item Activation",
-            "Global Build Compatibility"
-          ]
-        }
-      ]
-    },
-"676891": {
-      "features": [
-        {
-          "title": "Aimbot Precision",
-          "items": [
-            "Hitbox Selection (Dynamic Targets)",
-            "Speed, FOV & Distance Controls",
-            "Retarget & Detach Timing Logic",
-            "Invisible & Team Priority Filters",
-            "Visual FOV Radius Indicator"
-          ]
-        },
-        {
-          "title": "Auto-Trigger",
-          "items": [
-            "Intelligent Magnetic Triggerbot",
-            "Custom Hitbox Expansion",
-            "Adjustable Retarget Delays",
-            "Team & Visibility Checks",
-            "Optimized Reaction Timing"
-          ]
-        },
-        {
-          "title": "Tactical ESP",
-          "items": [
-            "Box, Skeleton & Head Dot Visuals",
-            "View Angles & Visible Indicators",
-            "Out of FOV Tracking Arrows",
-            "Enemy, Team & Bot Filtering",
-            "Fully Draggable Overlay Elements"
-          ]
-        },
-        {
-          "title": "System & Config",
-          "items": [
-            "Advanced Config List Management",
-            "Developer Mode & FPS Overlay",
-            "Supports Windows 10 & 11",
-            "Intel & AMD CPU Compatible",
-            "Name & Distance Rendering"
-          ]
-        }
-      ]
-    },
-"676897": {
-      "features": [
-        {
-          "title": "Aimbot & Prediction",
-          "items": [
-            "Precision Prediction Tracking",
-            "Dual Aim Keys & Target Lock",
-            "Smooth Radius & FOV Control",
-            "Visible Only & Nearest Bone Logic",
-            "Force Bone Key Customization"
-          ]
-        },
-        {
-          "title": "Targeting Selection",
-          "items": [
-            "Bones: Head, Neck, Body, Pelvis",
-            "Dynamic Nearest Bone Selection",
-            "Specific Force Bone Override",
-            "Custom FOV Radius Visualizer",
-            "Adjustable Targeting Priority"
+          "title": "Combat & Automation",
+          "items": [
+            "Advanced Aimbot & Recoil Control",
+            "Triggerbot & Auto Fire Systems",
+            "Insta Lock & AI Auto Buy",
+            "Spinbot & Rage Modifiers",
+            "Targeting & Smoke Verification"
           ]
         },
         {
           "title": "Player Visuals (ESP)",
           "items": [
-            "Box, Skeleton & Snaplines",
-            "Adjustable Skeleton Thickness",
-            "Health & Distance Monitoring",
-            "Player Nickname Display",
-            "Max Rendering Distance Slider"
+            "2D/3D Box & Skeleton Layouts",
+            "Advanced Glow & Fresnel Effects",
+            "Status & Weapon Indicators",
+            "Tactical Snaplines & Crosshairs",
+            "Visibility & Dormant Filters"
           ]
         },
         {
-          "title": "System & Utilities",
+          "title": "World & Screen Modifiers",
           "items": [
-            "Advanced Cloud Config System",
-            "Custom Crosshair Overlay & Size",
-            "FPS Overlay & Performance Locker",
-            "Shareable Configuration Files",
-            "Low-Latency External Rendering"
+            "World & Objective ESP Tracking",
+            "Environment & Smoke Removers",
+            "FOV Changer & Aspect Ratio",
+            "Free View & Freecam Systems",
+            "Self Material & Gun Scale"
+          ]
+        },
+        {
+          "title": "System & Customization",
+          "items": [
+            "Profile & Config Management",
+            "Universal Inventory Unlocker",
+            "Movement Exploits & Bunny Hop",
+            "Chat Spammer & Fun Tools",
+            "Full OS & Hardware Support"
+]
+        }
+      ]
+    },
+    "268325": {
+      "features": [
+        {
+          "title": "System Compatibility",
+          "items": [
+            "Windows 10 & 11 All Versions",
+            "All Motherboards Fully Supported",
+            "HVCI Core Isolation On/Off",
+            "Hardware Profile Automated Saving",
+            "Universal Driver Integration"
+          ]
+        },
+        {
+          "title": "Hardware Unban Bypass",
+          "items": [
+            "Instant Van 152 Error Bypass",
+            "Instant Val 5 Connection Fix",
+            "No Game Restart Required",
+            "Bypass TPM & Secure Boot",
+            "Bypass HVCI Security Restrictions"
+]
+        }
+      ]
+    },
+    "293256": {
+      "features": [
+        {
+          "title": "Aimbot & Recoil Control",
+          "items": [
+            "Enable External Aimbot Customization",
+            "Recoil Control System Assistance",
+            "Target Bone Priority Selection",
+            "Adjustable Aim Smooth Sliders",
+            "Custom Hotkey Input Mapping"
+          ]
+        },
+        {
+          "title": "Player ESP Visuals",
+          "items": [
+            "2D Corner & Filled Boxes",
+            "Skeleton Bone Structure Tracking",
+            "Agent Name & Distance Overlays",
+            "Health & Shield Status Bars",
+            "Visible & Invisible Color Coding"
+          ]
+        },
+        {
+          "title": "Tactical Awareness",
+          "items": [
+            "Moveable Radar Minimap Display",
+            "Off-Screen Enemy Warning Arrows",
+            "LineUp Helper & Placement Assist",
+            "Traps & Enemy Objective ESP",
+            "Dormant & Target Visibility Checks"
+          ]
+        },
+        {
+          "title": "System & Settings",
+          "items": [
+            "StreamProof AntiStream Overlay Mode",
+            "Profile Config Save & Load",
+            "Panic Key Instant Emergency Unload",
+            "Unique HVCI Injection Security Methods",
+            "Screen Custom Crosshair & VSync"
+]
+        }
+      ]
+    },
+    "293259": {
+      "features": [
+        {
+          "title": "Rage & Legiti Combat",
+          "items": [
+            "Serversided pSilent & Perfect No Spread",
+            "Prediction System & Wall Penetration",
+            "Auto Shoot with Customizable Speed",
+            "Automated Triggerbot & Quick Stop",
+            "Spectator Detection Automated Aimbot Disable"
+          ]
+        },
+        {
+          "title": "Advanced Player Chams & ESP",
+          "items": [
+            "Multi-Type Enemy Chams & Glow Modifiers",
+            "2D, 3D, and Corner Box Overlays",
+            "Enemy Player & Agent Name Indicators",
+            "Skeleton Bone & Snapline Tracking Systems",
+            "Horizontal & Vertical Healthbar Customization"
+          ]
+        },
+        {
+          "title": "Visual & Environment Overrides",
+          "items": [
+            "Galaxy Skin Themes for Enemies & Self",
+            "Skybox Changer & Lightning Sky Effects",
+            "World FOG Modifiers & Night Mode Toggles",
+            "Bullet Tracers & Dropped Weapon Glow",
+            "Minimap Radar & Spectator List Overlays"
+          ]
+        },
+        {
+          "title": "Inventory & Model Customization",
+          "items": [
+            "Safe Universal Skin Unlocker Integration",
+            "Custom Agent Model Swapper Systems",
+            "Butterfly Knife & Custom Skin Textures",
+            "Finisher Customization & Buddy Changer",
+            "Weapon & Hand Chams Custom Colors"
+          ]
+        },
+        {
+          "title": "Exploits & System Management",
+          "items": [
+            "Pitch & Yaw Jitter Anti-Aim Systems",
+            "Serversided Anti Flash & Fast Equip",
+            "Aspect Ratio & FOV Changer Sliders",
+            "Thirdperson Cam Modifiers & Keybinds",
+            "Bunny Hop & Anti AFK Automation"
           ]
         }
       ]

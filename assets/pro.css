@@ -1024,12 +1024,12 @@ input[type=number] {
 }
 
 .vgg-variant-item:hover {
-  border-color: rgba(74, 144, 217, 0.4);
+  border-color: rgba(217, 74, 74, 0.4);
 }
 
 .vgg-variant-item.selected {
-  border-color: #4A90D9;
-  background: rgba(74, 144, 217, 0.06);
+  border-color: #D94A4A;
+  background: rgba(217, 74, 74, 0.06);
 }
 
 .vgg-variant-item:disabled {
@@ -1076,9 +1076,9 @@ input[type=number] {
 }
 
 .vgg-variant-item.selected .vgg-variant-price {
-  background: #4A90D9;
-  color: #0a192f;
-  border-color: #4A90D9;
+  background: #D94A4A;
+  color: #2f0a0a;
+  border-color: #D94A4A;
 }
 
 .addon-item {
@@ -2223,7 +2223,7 @@ table td .btn.btn-link {
 }
 
 .builder .builder-toolbar .actions {
-  background: #070d19;
+  background: #190707;
   display: inline-flex;
   gap: 0.5rem;
   padding: 0.5rem;
@@ -2233,12 +2233,12 @@ table td .btn.btn-link {
 .builder .builder-toolbar .actions button {
   padding: 0.5rem;
   border-radius: var(--bs-border-radius);
-  background: #0c1427;
+  background: #270c0c;
   border: 0;
 }
 
 .builder .builder-toolbar .actions button:hover {
-  background: #0a0f1f;
+  background: #1f0a0a;
 }
 
 .builder .builder-toolbar .actions button svg {

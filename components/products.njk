@@ -1,4 +1,4 @@
-﻿<section class="ux-products-section container py-20 component" id="products" data-component-id="{{ componentId }}">
+<section class="ux-products-section container py-20 component" id="products" data-component-id="{{ componentId }}">
 
   {% set trendingSource = all_products if all_products and all_products|length > 0 else sortedItems %}
   {% set trendingItems = helpers.components.products.getItemsByIds(trendingSource, properties.trending_ids) %}
@@ -78,7 +78,7 @@
   {% endif %}
 
   <div style="text-align: center; margin-bottom: 2rem; position: relative; z-index: 1;" data-aos="fade-up">
-    <div style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.8rem; margin-bottom: 0.75rem; background: rgba(74, 144, 217, 0.08); border: 1px solid rgba(74, 144, 217, 0.15); border-radius: 9999px; font-size: 0.75rem; color: #4A90D9;">
+    <div style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.8rem; margin-bottom: 0.75rem; background: rgba(217, 74, 74, 0.08); border: 1px solid rgba(217, 74, 74, 0.15); border-radius: 9999px; font-size: 0.75rem; color: #D94A4A;">
       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
       <span>Products</span>
     </div>
@@ -94,19 +94,15 @@
     <div class="row products justify-content-center">
       {% if properties.ids|length == 0 %}
         {% for item in sortedItems %}
-          {% if item.type == 'group' %}
-            <div class="col-6 col-md-6 col-lg-3 col-xl-3">
-              {% render_snippet "product-card.njk", product=item %}
-            </div>
-          {% endif %}
+          <div class="col-6 col-md-6 col-lg-3 col-xl-3">
+            {% render_snippet "product-card.njk", product=item %}
+          </div>
         {% endfor %}
       {% else %}
         {% for item in helpers.components.products.getItemsByIds(sortedItems, properties.ids) %}
-          {% if item.type == 'group' %}
-            <div class="col-6 col-md-6 col-lg-3 col-xl-3">
-              {% render_snippet "product-card.njk", product=item %}
-            </div>
-          {% endif %}
+          <div class="col-6 col-md-6 col-lg-3 col-xl-3">
+            {% render_snippet "product-card.njk", product=item %}
+          </div>
         {% endfor %}
       {% endif %}
     </div>

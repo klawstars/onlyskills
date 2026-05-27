@@ -10,12 +10,12 @@
       <div class="ux-footer-grid">
         <div class="ux-footer-brand" style="align-items: flex-start; gap: 0.75rem;">
           <a href="{{ '/' | shopUrl }}" style="display: inline-block; margin-left: 0.25rem; margin-top: 0.5rem;">
-            <img src="https://i.imgur.com/kZdimki.png" alt="{{ shop.name }}" style="height: 48px; width: auto; display: block;">
+            <img src="https://i.imgur.com/CvOUkWj.png" alt="{{ shop.name }}" style="height: 48px; width: auto; display: block;">
           </a>
-          <p style="color: rgba(255, 255, 255, 0.45); font-size: 0.82rem; line-height: 1.55; margin: 0; margin-left: 1rem; max-width: 260px;">Hollow provides the best products on the market at a low price and with fast support.</p>
+          <p style="color: rgba(255, 255, 255, 0.45); font-size: 0.82rem; line-height: 1.55; margin: 0; margin-left: 1rem; max-width: 260px;">OnlySkills provides the best products on the market at a low price and with fast support.</p>
           <div style="display: inline-flex; align-items: center; gap: 0.45rem; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 999px; padding: 0.45rem 0.95rem; margin-left: 1rem;">
-            <span style="width: 8px; height: 8px; min-width: 8px; background: #4A90D9; border-radius: 50%; display: inline-block;"></span>
-            <span style="font-size: 0.78rem; font-weight: 600; white-space: nowrap; line-height: 1;"><span style="color: #4A90D9;" id="visitor-count"></span> <span style="color: rgba(255, 255, 255, 0.9);">Visitors Online</span></span>
+            <span style="width: 8px; height: 8px; min-width: 8px; background: #D94A4A; border-radius: 50%; display: inline-block;"></span>
+            <span style="font-size: 0.78rem; font-weight: 600; white-space: nowrap; line-height: 1;"><span style="color: #D94A4A;" id="visitor-count"></span> <span style="color: rgba(255, 255, 255, 0.9);">Visitors Online</span></span>
             <script>document.getElementById('visitor-count').textContent=Math.floor(Math.random()*75)+60;</script>
           </div>
         </div>
@@ -50,9 +50,7 @@
           <div class="ux-footer-col">
             <h3>Socials</h3>
             <ul>
-              {% if shop.discord_url %}
-              <li><a href="{{ shop.discord_url }}" target="_blank">Discord</a></li>
-              {% endif %}
+              <li><a href="https://discord.gg/onlyskills" target="_blank">Discord</a></li>
               {% if shop.telegram_url %}
               <li><a href="{{ shop.telegram_url }}" target="_blank">Telegram</a></li>
               {% endif %}
