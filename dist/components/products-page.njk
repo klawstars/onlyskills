@@ -1,0 +1,469 @@
+{% set hasRouteCollection = route_category_slug and route_category_slug|length > 0 %}
+{% set collectionName = (current_collection.name if current_collection and current_collection.name else '') %}
+{% set listingGroups = (groups_listing if groups_listing else []) %}
+{% set listingProducts = (collection_products if collection_products else []) %}
+{% if not hasRouteCollection %}
+  {% if all_products and all_products|length > 0 %}
+    {% set listingProducts = all_products %}
+  {% elif products and products|length > 0 %}
+    {% set listingProducts = products %}
+  {% endif %}
+{% endif %}
+{% set hasCollection = hasRouteCollection or (not hasRouteCollection and listingProducts|length > 0) %}
+
+<section
+  class="sa-plp component py-5-nav"
+  data-component-id="{{ componentId }}"
+  x-data="saProductsPage()"
+>
+  <script type="application/json" class="sa-plp-data">
+    {
+      "hasCollection": {{ 'true' if hasCollection else 'false' }},
+      "collectionName": {{ collectionName | json }},
+      "initialProducts": {{ listingProducts | json }},
+      "initialGroups": {{ listingGroups | json }}
+    }
+  </script>
+  <div class="container sa-plp-container">
+    <div class="sa-plp-hero">
+      <h1>
+        {% if hasCollection and collectionName %}
+          {{ collectionName }}
+        {% else %}
+          <span class="sa-plp-title-accent">Game</span> Enhancements
+        {% endif %}
+      </h1>
+      <p>
+        Explore our range of premium tools designed to elevate your gameplay. Instant delivery and 24/7 support included.
+      </p>
+    </div>
+
+    {% if not hasCollection %}
+      <div class="sa-plp-category-wrap">
+        <div class="sa-plp-category-head">
+          <h2>Browse by Category</h2>
+          <div class="sa-plp-search-wrap sa-plp-group-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              placeholder="Search categories..."
+              x-model="groupSearchQuery"
+            >
+          </div>
+        </div>
+
+        <template x-if="filteredGroups.length === 0">
+          <div class="sa-plp-empty">
+            <div class="sa-plp-empty-icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <h3>No categories found</h3>
+            <p>Try a different search query.</p>
+          </div>
+        </template>
+
+        <div class="sa-plp-groups-grid" x-show="filteredGroups.length > 0" x-cloak>
+          <template x-for="(group, index) in filteredGroups" :key="group.id + '-' + index">
+            <a class="sa-plp-group-card" :href="'{{ '/products/' | shopUrl }}' + group.path" :aria-label="group.name">
+              <img :src="group.image" :alt="group.name" loading="lazy" @error="$event.target.src='/assets/hero.jpg'">
+            </a>
+          </template>
+        </div>
+        <div class="sa-plp-divider"></div>
+      </div>
+    {% else %}
+      <div class="sa-plp-toolbar">
+        <div class="sa-plp-search-wrap">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="text"
+            placeholder="Search products..."
+            x-model="searchQuery"
+          >
+        </div>
+
+        <div class="sa-plp-toolbar-right">
+          <div class="sa-plp-view-switch">
+            <button
+              type="button"
+              :class="{ 'active': viewMode === 'grid' }"
+              @click="viewMode = 'grid'"
+              aria-label="Grid view"
+            >
+              <i class="fa-solid fa-grip"></i>
+            </button>
+            <button
+              type="button"
+              :class="{ 'active': viewMode === 'list' }"
+              @click="viewMode = 'list'"
+              aria-label="List view"
+            >
+              <i class="fa-solid fa-list"></i>
+            </button>
+          </div>
+
+          <button
+            type="button"
+            class="sa-plp-filter-btn"
+            :class="{ 'active': showFilters }"
+            @click="showFilters = !showFilters"
+          >
+            <i class="fa-solid fa-filter"></i>
+            <span>Filters</span>
+          </button>
+        </div>
+
+        <div class="sa-plp-filter-panel" x-show="showFilters" x-cloak>
+          <div class="sa-plp-filter-grid">
+            <div class="sa-plp-filter-item">
+              <label>Price Range</label>
+              <div class="sa-plp-filter-price-row">
+                <input type="number" placeholder="Min" x-model="filters.minPrice">
+                <input type="number" placeholder="Max" x-model="filters.maxPrice">
+              </div>
+            </div>
+
+            <div class="sa-plp-filter-item">
+              <label>Availability</label>
+              <button
+                type="button"
+                class="sa-plp-chip"
+                :class="{ 'active': filters.inStockOnly }"
+                @click="filters.inStockOnly = !filters.inStockOnly"
+              >
+                <span x-text="filters.inStockOnly ? 'In Stock Only' : 'Show All Items'"></span>
+              </button>
+            </div>
+
+            <div class="sa-plp-filter-item">
+              <label>Popularity</label>
+              <button
+                type="button"
+                class="sa-plp-chip"
+                :class="{ 'active': filters.popularOnly }"
+                @click="filters.popularOnly = !filters.popularOnly"
+              >
+                <span x-text="filters.popularOnly ? 'Best Sellers Only' : 'Show All Items'"></span>
+              </button>
+            </div>
+
+            <div class="sa-plp-filter-item sa-plp-filter-reset">
+              <button
+                type="button"
+                class="sa-plp-reset-btn"
+                @click="filters = { inStockOnly: false, popularOnly: false, minPrice: '', maxPrice: '' }"
+              >
+                Reset Filters
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sa-plp-products sa-plp-products-fallback" x-bind:style="alpineReady ? 'display:none;' : ''">
+        {% for item in listingProducts %}
+          {% set fallbackImage = (item.image_urls[0] if item.image_urls and item.image_urls|length > 0 else (item.image_url if item.image_url else '/assets/hero.jpg')) %}
+          {% set fallbackStatusText = item.status_text|default('')|lower %}
+          {% set fallbackService = ('Offline' if ('offline' in fallbackStatusText or 'detected' in fallbackStatusText or 'updating' in fallbackStatusText) else 'Online') %}
+          {% set fallbackHasStock = false %}
+          {% if item.variants and item.variants|length > 0 %}
+            {% for variant in item.variants %}
+              {% if variant.stock == -1 or variant.stock > 0 %}
+                {% set fallbackHasStock = true %}
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            {% set fallbackHasStock = true %}
+          {% endif %}
+          <a class="sa-home-trending-card sa-plp-unified-card" href="{{ ('/product/' + item.path) | shopUrl }}">
+            <div class="sa-home-trending-media">
+              <div class="sa-home-trending-overlay"></div>
+              <div class="sa-home-trending-glow"></div>
+              <img src="{{ fallbackImage }}" alt="{{ item.name }}" loading="lazy">
+              <div class="sa-home-trending-badges">
+                <span class="sa-home-trending-badge best">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i>
+                  Popular
+                </span>
+                {% if fallbackHasStock %}
+                  <span class="sa-home-trending-badge stock">
+                    <span class="dot"></span>
+                    In Stock
+                  </span>
+                {% endif %}
+              </div>
+            </div>
+
+            <div class="sa-home-trending-body">
+              <div class="sa-home-trending-row-top">
+                <h3>{{ item.name }}</h3>
+                <span class="sa-home-trending-service {{ 'online' if fallbackService == 'Online' else 'offline' }}">
+                  <span class="dot"></span>
+                  {{ fallbackService }}
+                </span>
+              </div>
+
+              <div class="sa-home-trending-row-bottom">
+                <div class="sa-home-trending-price">
+                  <span>Starting at</span>
+                  <strong>{{ formatPrice(item.min_price, item.currency) }}</strong>
+                </div>
+                <span class="sa-home-trending-buy">
+                  <i class="fa-solid fa-bag-shopping"></i>
+                  Buy Now
+                </span>
+              </div>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+
+      <template x-if="alpineReady && filteredProducts.length === 0">
+        <div class="sa-plp-empty">
+          <div class="sa-plp-empty-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <h3>No products found</h3>
+          <p>Try adjusting your search terms or filters.</p>
+        </div>
+      </template>
+
+      <div
+        class="sa-plp-products"
+        :class="{ 'list': viewMode === 'list' }"
+        x-show="alpineReady && filteredProducts.length > 0"
+        x-cloak
+      >
+        <template x-for="(item, index) in filteredProducts" :key="item.id + '-' + index">
+          <a class="sa-home-trending-card sa-plp-unified-card" :href="'{{ '/product/' | shopUrl }}' + item.path">
+            <div class="sa-home-trending-media">
+              <div class="sa-home-trending-overlay"></div>
+              <div class="sa-home-trending-glow"></div>
+              <img :src="item.image" :alt="item.name" @error="$event.target.src='/assets/hero.jpg'">
+              <div class="sa-home-trending-badges">
+                <span class="sa-home-trending-badge best" x-show="item.popular">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i>
+                  Popular
+                </span>
+                <span class="sa-home-trending-badge stock" x-show="item.status === 'In Stock'">
+                  <span class="dot"></span>
+                  In Stock
+                </span>
+              </div>
+            </div>
+
+            <div class="sa-home-trending-body">
+              <div class="sa-home-trending-row-top">
+                <h3 x-text="item.name"></h3>
+                <span class="sa-home-trending-service" :class="item.serviceStatus === 'Online' ? 'online' : 'offline'">
+                  <span class="dot"></span>
+                  <span x-text="item.serviceStatus"></span>
+                </span>
+              </div>
+
+              <div class="sa-home-trending-row-bottom">
+                <div class="sa-home-trending-price">
+                  <span>Starting at</span>
+                  <strong x-text="priceText(item)"></strong>
+                </div>
+                <span class="sa-home-trending-buy">
+                  <i class="fa-solid fa-bag-shopping"></i>
+                  Buy Now
+                </span>
+              </div>
+            </div>
+          </a>
+        </template>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    if (!window.saProductsPage) {
+      window.saProductsPage = () => ({
+        hasCollection: false,
+        collectionName: '',
+        initialProducts: [],
+        initialGroups: [],
+        items: [],
+        groups: [],
+        alpineReady: false,
+        searchQuery: '',
+        groupSearchQuery: '',
+        viewMode: 'grid',
+        showFilters: false,
+        filters: {
+          inStockOnly: false,
+          popularOnly: false,
+          minPrice: '',
+          maxPrice: '',
+        },
+
+        getPayload() {
+          const payloadNode = this.$el && typeof this.$el.querySelector === 'function'
+            ? this.$el.querySelector('.sa-plp-data')
+            : null;
+
+          if (!payloadNode) {
+            return {};
+          }
+
+          try {
+            return JSON.parse(payloadNode.textContent || '{}');
+          } catch (_) {
+            return {};
+          }
+        },
+
+        init() {
+          const payload = this.getPayload();
+          this.hasCollection = !!payload.hasCollection;
+          this.collectionName = String(payload.collectionName || '');
+          this.initialProducts = Array.isArray(payload.initialProducts) ? payload.initialProducts : [];
+          this.initialGroups = Array.isArray(payload.initialGroups) ? payload.initialGroups : [];
+          this.items = this.initialProducts.map((item) => this.normalizeProduct(item));
+          this.groups = this.initialGroups.map((group) => this.normalizeGroup(group));
+          this.alpineReady = true;
+        },
+
+        toNumber(value, fallback = 0) {
+          const parsed = Number(value);
+          return Number.isFinite(parsed) ? parsed : fallback;
+        },
+
+        optionalNumber(value) {
+          if (value === null || value === undefined) {
+            return NaN;
+          }
+
+          const text = String(value).trim();
+          if (!text) {
+            return NaN;
+          }
+
+          const parsed = Number(text);
+          return Number.isFinite(parsed) ? parsed : NaN;
+        },
+
+        imageUrl(entity) {
+          const urls = Array.isArray(entity?.image_urls) ? entity.image_urls : [];
+          if (urls.length > 0 && urls[0]) {
+            return urls[0];
+          }
+          if (entity?.image_url) {
+            return entity.image_url;
+          }
+          return '/assets/hero.jpg';
+        },
+
+        normalizeGroup(group) {
+          return {
+            id: String(group?.id || ''),
+            path: String(group?.path || ''),
+            name: String(group?.name || 'Group'),
+            image: this.imageUrl(group),
+          };
+        },
+
+        stockStatus(product) {
+          const variants = Array.isArray(product?.variants) ? product.variants : [];
+          if (variants.length === 0) {
+            return 'In Stock';
+          }
+
+          const hasAvailableVariant = variants.some((variant) => {
+            const stock = this.toNumber(variant?.stock, -1);
+            if (stock === -1) {
+              return true;
+            }
+            return stock > 0;
+          });
+
+          return hasAvailableVariant ? 'In Stock' : 'Out of Stock';
+        },
+
+        serviceStatus(product) {
+          const text = String(product?.status_text || '').toLowerCase();
+          if (!text) {
+            return 'Online';
+          }
+          if (text.includes('offline') || text.includes('detected') || text.includes('updating')) {
+            return 'Offline';
+          }
+          return 'Online';
+        },
+
+        isPopular(product) {
+          const cardBadges = Array.isArray(product?.product_badges?.card) ? product.product_badges.card : [];
+          const pageBadges = Array.isArray(product?.product_badges?.page) ? product.product_badges.page : [];
+          const badges = [...cardBadges, ...pageBadges];
+          return badges.some((badge) => {
+            const label = String(badge?.label || '').toLowerCase();
+            return label.includes('best') || label.includes('popular');
+          });
+        },
+
+        normalizeProduct(product) {
+          return {
+            id: String(product?.id || ''),
+            path: String(product?.path || ''),
+            name: String(product?.name || 'Untitled Product'),
+            description: String(product?.description || ''),
+            basePrice: this.toNumber(product?.min_price, 0),
+            currency: String(product?.currency || 'USD'),
+            image: this.imageUrl(product),
+            status: this.stockStatus(product),
+            serviceStatus: this.serviceStatus(product),
+            popular: this.isPopular(product),
+          };
+        },
+
+        priceText(product) {
+          const amount = this.toNumber(product?.basePrice, 0);
+          const currency = String(product?.currency || 'USD');
+
+          if (window.alpineApp && window.alpineApp.appCurrency && typeof window.alpineApp.appCurrency.format === 'function') {
+            try {
+              return window.alpineApp.appCurrency.format(amount, currency);
+            } catch (_) {}
+          }
+
+          try {
+            return new Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency,
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            }).format(amount);
+          } catch (_) {
+            return `$${amount.toFixed(2)}`;
+          }
+        },
+
+        get filteredGroups() {
+          const query = this.groupSearchQuery.trim().toLowerCase();
+          return this.groups.filter((group) => !query || group.name.toLowerCase().includes(query));
+        },
+
+        get filteredProducts() {
+          const query = this.searchQuery.trim().toLowerCase();
+          const minPrice = this.optionalNumber(this.filters.minPrice);
+          const maxPrice = this.optionalNumber(this.filters.maxPrice);
+
+          return this.items.filter((item) => {
+            const matchesSearch = !query
+              || item.name.toLowerCase().includes(query)
+              || item.description.toLowerCase().includes(query);
+            const matchesStock = this.filters.inStockOnly ? item.status === 'In Stock' : true;
+            const matchesPopular = this.filters.popularOnly ? !!item.popular : true;
+            const matchesMin = Number.isNaN(minPrice) ? true : item.basePrice >= minPrice;
+            const matchesMax = Number.isNaN(maxPrice) ? true : item.basePrice <= maxPrice;
+            return matchesSearch && matchesStock && matchesPopular && matchesMin && matchesMax;
+          });
+        },
+      });
+    }
+  });
+</script>

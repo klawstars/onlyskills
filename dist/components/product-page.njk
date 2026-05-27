@@ -1,0 +1,467 @@
+{% set galleryImages = (product.image_urls if product.image_urls and product.image_urls|length > 0 else ([product.image_url] if product.image_url else ['/assets/hero.jpg'])) %}
+{% set displayPrice = (product.variants[0].price if product.variants and product.variants|length > 0 else (product.min_price if product.min_price else 0)) %}
+{% set testimonialsRows = [
+  [
+    { "name": "Alex M.", "rating": 5, "text": "Literally the best provider I've found so far. The internal for Rust is incredibly smooth and the setup was instant.", "date": "2d ago" },
+    { "name": "Sarah K.", "rating": 5, "text": "The built-in spoofer is a lifesaver. Been using it for a week on my main and everything is still green. Highly recommend!", "date": "1w ago" },
+    { "name": "John D.", "rating": 4, "text": "Solid features and great performance. Had a small issue with the overlay at first but support helped me fix it in 5 mins.", "date": "3d ago" },
+    { "name": "Mike R.", "rating": 5, "text": "Insane ESP precision. The skeleton and chams look super clean, no lag at all even in busy areas.", "date": "1d ago" }
+  ],
+  [
+    { "name": "Emily W.", "rating": 5, "text": "Fast delivery and easy to configure. The cloud config feature is so convenient when switching between legit and rage modes.", "date": "5h ago" },
+    { "name": "David B.", "rating": 5, "text": "Just got my key and everything is working perfectly. The installation guide is very straightforward.", "date": "Just now" },
+    { "name": "Chris P.", "rating": 5, "text": "Been searching for a reliable stream-proof solution for a long time. This is it. OBS doesn't show a thing.", "date": "4d ago" },
+    { "name": "Jessica L.", "rating": 5, "text": "The Unlock All tool worked like a charm. Got every camo and operator in seconds. Best value for money.", "date": "2w ago" }
+  ],
+  [
+    { "name": "Ryan T.", "rating": 4, "text": "Good stuff. The external radar is a nice touch for staying safe while still having the edge.", "date": "1d ago" },
+    { "name": "Kevin H.", "rating": 5, "text": "Top tier security. You can tell the devs actually care about bypasses. Ricochet hasn't noticed a thing.", "date": "3h ago" },
+    { "name": "Lisa M.", "rating": 5, "text": "Best customer service ever. They are available 24/7 and actually know what they're talking about.", "date": "5d ago" },
+    { "name": "Tom B.", "rating": 5, "text": "10/10 performance. My FPS stays high and the aimbot prediction is spot on for long range snipes.", "date": "1w ago" }
+  ]
+] %}
+
+<div class="sa-pp component" data-component-id="{{ componentId }}">
+  <div class="container sa-pp-container">
+    <section class="sa-pp-shell py-5-nav">
+      <nav class="sa-breadcrumb">
+        <a href="{{ '/' | shopUrl }}">Home</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <a href="{{ '/products' | shopUrl }}">Products</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span>{{ product.name }}</span>
+      </nav>
+
+      <div class="sa-main-grid" x-data="saProductGallery($el)">
+        <script type="application/json" class="sa-gallery-data">{{ galleryImages | json }}</script>
+        <div class="sa-media-col">
+          <div class="sa-main-image-card">
+            <div class="sa-badge sa-badge-delivery">
+              <i class="fa-solid fa-bolt"></i>
+              <span>Instant Delivery</span>
+            </div>
+
+              <img :src="images[currentIndex]" alt="{{ product.name }}" class="sa-main-image" @error="$event.target.src='/assets/hero.jpg'" />
+
+            <template x-if="images.length > 1">
+              <button type="button" class="sa-arrow sa-arrow-left" @click="prev()">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+            </template>
+            <template x-if="images.length > 1">
+              <button type="button" class="sa-arrow sa-arrow-right" @click="next()">
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </template>
+
+            <template x-if="images.length > 1">
+              <div class="sa-dots">
+                <template x-for="(img, idx) in images" :key="'dot-' + idx">
+                  <button type="button" class="sa-dot" :class="{ 'active': idx === currentIndex }" @click="set(idx)"></button>
+                </template>
+              </div>
+            </template>
+          </div>
+
+          <template x-if="images.length > 1">
+            <div class="sa-thumbs">
+              <template x-for="(img, idx) in images" :key="'thumb-' + idx">
+                <button type="button" class="sa-thumb" :class="{ 'active': idx === currentIndex }" @click="set(idx)">
+                  <img :src="img" alt="" @error="$event.target.src='/assets/hero.jpg'">
+                </button>
+              </template>
+            </div>
+          </template>
+
+          <div class="sa-promo-card">
+            <div class="sa-promo-icon">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+            <div class="sa-promo-content">
+              <div class="sa-promo-title">Don't see your payment method?</div>
+              <p>Join our Discord server to access more payment options and get assisted instantly.</p>
+              <button type="button" onclick="window.open('https://discord.gg/onlyskills', '_blank')">
+                Join Discord Server
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="sa-info-col">
+          <div class="sa-head-row">
+            <h1>{{ product.name }}</h1>
+            <div class="sa-price">
+              <span x-text="appCurrency.format({{ displayPrice }}, '{{ product.currency }}')">
+                {{ formatPrice(displayPrice, product.currency) }}
+              </span>
+            </div>
+          </div>
+
+          <div class="sa-status-row">
+            <span class="sa-pill" style="--pill-color: {{ product.status_color if product.status_color else '#22c55e' }};">
+              <span class="sa-pill-dot"></span>
+              {{ product.status_text if product.status_text else 'ONLINE' }}
+            </span>
+            <span class="sa-pill sa-pill-rating">
+              <i class="fa-solid fa-star"></i>
+              Excellent on Trustpilot
+            </span>
+          </div>
+
+          <div class="sa-buy-card">
+            <div x-data="productForm">
+              {% if product.category_id or product.product_badges.page|length > 0 %}
+                <div class="badges mb-3">
+                  {% if product.category_id and product.category %}
+                    <a href="{{ product.category.url }}">
+                      <i class="fa fa-border-all fa-fw"></i>
+                      {{ product.category.name }}
+                    </a>
+                  {% endif %}
+                  {% for productBadge in product.product_badges.page %}
+                    <div style="background-color: {{ productBadge.color }}" data-text="{{ productBadge.label }}" data-color="{{ productBadge.color }}">
+                      {% if productBadge.icon %}
+                        <i class="{{ productBadge.icon }} fa-fw"></i>
+                      {% endif %}
+                      {{ productBadge.label }}
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
+              {% render_snippet "product-form.njk", product=product %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sa-content-sections" x-data="saProductMeta('{{ product.id }}')" x-init="init()">
+        <section class="sa-req-section" x-show="requirements.length" x-cloak>
+          <h2>System Requirements</h2>
+          <div class="sa-req-grid">
+            <template x-for="(req, index) in requirements" :key="`req-${index}-${req.label || ''}`">
+              <article class="sa-req-card">
+                <div class="sa-req-icon">
+                  <i :class="iconClass(req.icon)"></i>
+                </div>
+                <div class="sa-req-label" x-text="req.label || 'Requirement'"></div>
+                <div class="sa-req-value" x-text="req.value || '-'"></div>
+              </article>
+            </template>
+          </div>
+        </section>
+
+        <section class="sa-external-features-section" x-show="featureGroups.length" x-cloak>
+          <h2>Features</h2>
+          <div class="sa-external-features-grid">
+            <template x-for="(group, groupIndex) in featureGroups" :key="`feature-${groupIndex}-${group.title || ''}`">
+              <article class="sa-external-feature-card">
+                <div class="sa-external-feature-head">
+                  <div class="sa-external-feature-badge">
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                  <h3 x-text="group.title || 'Features'"></h3>
+                </div>
+                <ul class="sa-external-feature-list">
+                  <template x-for="(item, itemIndex) in (group.items || [])" :key="`feature-item-${groupIndex}-${itemIndex}`">
+                    <li x-text="item"></li>
+                  </template>
+                </ul>
+              </article>
+            </template>
+          </div>
+        </section>
+
+        <section class="sa-desc-section" x-data="{ activeTab: 'description' }">
+          {% if product.product_tabs and product.product_tabs|length > 0 %}
+            <div class="sa-tab-row">
+              {% for productTab in product.product_tabs %}
+                <button type="button" @click="activeTab = '{{ productTab.slug }}'" :class="{ 'active': activeTab === '{{ productTab.slug }}' }">
+                  {{ productTab.title }}
+                </button>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          <template x-if="activeTab == 'description'">
+            <div class="sa-desc-body">
+              <div class="editor">
+                {{ product.description | sanitizeHtml }}
+              </div>
+            </div>
+          </template>
+
+          {% for productTab in product.product_tabs %}
+            <template x-if="activeTab == '{{ productTab.slug }}'">
+              <div class="editor">
+                {{ productTab.content | sanitizeHtml }}
+              </div>
+            </template>
+          {% endfor %}
+        </section>
+
+        {% if productUpsells.length > 0 %}
+          <section class="sa-upsells">
+            <h2>Commonly Bought Together</h2>
+            <div class="row products">
+              {% set ogProduct = product %}
+              {% for upsell in productUpsells %}
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+                  {% render_snippet "product-card.njk", product=upsell %}
+                </div>
+              {% endfor %}
+              {% set product = ogProduct %}
+            </div>
+          </section>
+        {% endif %}
+
+        <section class="sa-testimonials">
+          <div class="sa-testimonials-head">
+            <h2 class="sa-testimonials-title">What Our Users Say</h2>
+            <p>Join thousands of satisfied customers</p>
+          </div>
+
+          <div class="sa-testimonials-marquee">
+            {% for row in testimonialsRows %}
+              {% set rowDuration = 55 + (loop.index0 * 10) %}
+              <div class="sa-testimonials-row">
+                <div class="sa-testimonials-track {% if loop.index0 % 2 == 0 %}sa-testimonials-track-left{% else %}sa-testimonials-track-right{% endif %}" style="--sa-marquee-duration: {{ rowDuration }}s;">
+                  {% for duplicate in [0, 1] %}
+                    {% for review in row %}
+                      <article class="sa-testimonial-card">
+                        <div class="sa-testimonial-head">
+                          <div class="sa-testimonial-user">
+                            <div class="sa-testimonial-avatar">{{ review.name[0] }}</div>
+                            <span>{{ review.name }}</span>
+                          </div>
+                          <span class="sa-testimonial-date">{{ review.date }}</span>
+                        </div>
+
+                        <div class="sa-testimonial-stars">
+                          {% for star in [1, 2, 3, 4, 5] %}
+                            <i class="fa-solid fa-star {% if star <= review.rating %}sa-star-on{% else %}sa-star-off{% endif %}"></i>
+                          {% endfor %}
+                        </div>
+
+                        <p class="sa-testimonial-text">"{{ review.text }}"</p>
+                      </article>
+                    {% endfor %}
+                  {% endfor %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </section>
+      </div>
+    </section>
+  </div>
+</div>
+
+{% if 'latestOrders' in liveStats and liveStats.latestOrders|length > 0 %}
+  <link href="https://cdn.jsdelivr.net/npm/flag-icons@7.3.2/css/flag-icons.min.css" rel="stylesheet" integrity="sha256-tyPeBlnZW2qWbAF1hQiCt9qo6SOgOSymvJBum+FrrwI=" crossorigin="anonymous">
+  <div x-data="salesNotifications" x-cloak class="notification-container">
+    <div x-show="show" class="notification-popup">
+      <template x-if="order">
+        <div class="notification-content">
+          {% if product.image_urls|length > 0 %}
+            <div class="notification-image-container">
+              <img src="{{ product.image_urls[0] }}" alt="{{ product.name }} image" class="notification-image">
+            </div>
+          {% endif %}
+          <div class="notification-text truncate">
+            <p class="notification-text-primary text-muted">
+              Someone
+              <template x-if="order.country_code">
+                <span>
+                  from <i :class="`flag-icon fi fi-${order.country_code.toLowerCase()}`"></i>
+                </span>
+              </template>
+              purchased
+            </p>
+            <p class="notification-text-secondary">{{ product.name }}</p>
+            <p class="notification-text-tertiary text-muted">
+              <span x-text="getTimeAgo(order.completed_at)"></span>
+            </p>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('salesNotifications', () => ({
+        displayTime: 8000,
+        initTimeMin: 2000,
+        initTimeMax: 4000,
+        nextTimeMin: 8000,
+        nextTimeMax: 12000,
+        latestOrders: {{ liveStats.latestOrders | json }},
+        show: false,
+        get order() {
+          return this.latestOrders.length > 0 ? this.latestOrders[0] : null;
+        },
+        getRandomInterval(min, max) {
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+        },
+        getTimeAgo(input) {
+          const date = (input instanceof Date) ? input : new Date(input);
+          const formatter = new Intl.RelativeTimeFormat('en');
+          const ranges = {
+            years: 3600 * 24 * 365,
+            months: 3600 * 24 * 30,
+            weeks: 3600 * 24 * 7,
+            days: 3600 * 24,
+            hours: 3600,
+            minutes: 60,
+            seconds: 1
+          };
+          const secondsElapsed = (date.getTime() - Date.now()) / 1000;
+          for (let key in ranges) {
+            if (ranges[key] < Math.abs(secondsElapsed)) {
+              const delta = secondsElapsed / ranges[key];
+              return formatter.format(Math.round(delta), key);
+            }
+          }
+          return 'just now';
+        },
+        showNotification() {
+          if (this.latestOrders.length === 0) return;
+          this.show = true;
+          setTimeout(() => {
+            this.show = false;
+            setTimeout(() => {
+              this.latestOrders.shift();
+              if (this.latestOrders.length > 0) {
+                setTimeout(() => this.showNotification(), this.getRandomInterval(this.nextTimeMin, this.nextTimeMax));
+              }
+            }, 500);
+          }, this.displayTime);
+        },
+        init() {
+          setTimeout(() => this.showNotification(), this.getRandomInterval(this.initTimeMin, this.initTimeMax));
+        }
+      }));
+    });
+  </script>
+{% endif %}
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    if (!window.saProductGallery) {
+      window.saProductGallery = (input = []) => {
+        let images = input;
+
+        if (input && typeof input.querySelector === 'function') {
+          const payloadNode = input.querySelector('.sa-gallery-data');
+          if (payloadNode) {
+            try {
+              images = JSON.parse(payloadNode.textContent || '[]');
+            } catch (_) {
+              images = [];
+            }
+          }
+        }
+
+        if (!Array.isArray(images)) {
+          images = [];
+        }
+
+        return ({
+        images,
+        currentIndex: 0,
+        next() {
+          if (!this.images.length) return;
+          this.currentIndex = (this.currentIndex + 1) % this.images.length;
+        },
+        prev() {
+          if (!this.images.length) return;
+          this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+        },
+        set(index) {
+          if (!this.images.length) return;
+          this.currentIndex = index;
+        }
+      });
+      };
+    }
+
+    if (!window.saProductMeta) {
+      window.saProductMeta = (productId) => ({
+        productId: String(productId || ""),
+        requirements: [],
+        featureGroups: [],
+        icons: {
+          Monitor: "fa-solid fa-display",
+          Cpu: "fa-solid fa-microchip",
+          ShieldAlert: "fa-solid fa-triangle-exclamation",
+          ShieldCheck: "fa-solid fa-shield",
+          Gamepad2: "fa-solid fa-gamepad",
+          Globe: "fa-solid fa-globe",
+          HardDrive: "fa-solid fa-hard-drive",
+          Settings: "fa-solid fa-gears",
+          Zap: "fa-solid fa-bolt",
+          Check: "fa-solid fa-check",
+          Star: "fa-solid fa-star"
+        },
+        iconClass(name) {
+          const key = String(name || "").trim();
+          return this.icons[key] || "fa-solid fa-circle-check";
+        },
+        findProductBlock(payload, key) {
+          const products = payload && typeof payload === "object" ? payload.products : null;
+          if (!products || typeof products !== "object") {
+            return [];
+          }
+
+          const currentId = String(this.productId || "").trim();
+          if (!currentId) {
+            return [];
+          }
+
+          if (products[currentId] && Array.isArray(products[currentId][key])) {
+            return products[currentId][key];
+          }
+
+          const normalizedCurrentId = currentId.toLowerCase();
+          for (const [id, value] of Object.entries(products)) {
+            if (String(id || "").trim().toLowerCase() === normalizedCurrentId) {
+              if (value && Array.isArray(value[key])) {
+                return value[key];
+              }
+            }
+          }
+
+          return [];
+        },
+        async fetchJson(url) {
+          try {
+            const separator = url.includes("?") ? "&" : "?";
+            const bustUrl = `${url}${separator}v=${Date.now()}`;
+            const response = await fetch(bustUrl, { cache: "no-store" });
+            if (!response.ok) {
+              return null;
+            }
+            return await response.json();
+          } catch {
+            return null;
+          }
+        },
+        async init() {
+          if (!this.productId) {
+            return;
+          }
+
+          const [requirementsPayload, featuresPayload] = await Promise.all([
+            this.fetchJson("/requirements.json"),
+            this.fetchJson("/features.json"),
+          ]);
+
+          this.requirements = this.findProductBlock(requirementsPayload, "requirements");
+          this.featureGroups = this.findProductBlock(featuresPayload, "features");
+        },
+      });
+    }
+
+  });
+</script>

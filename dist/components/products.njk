@@ -1,0 +1,111 @@
+<section class="ux-products-section container py-20 component" id="products" data-component-id="{{ componentId }}">
+
+  {% set trendingSource = all_products if all_products and all_products|length > 0 else sortedItems %}
+  {% set trendingItems = helpers.components.products.getItemsByIds(trendingSource, properties.trending_ids) %}
+
+  {% if properties.trending_ids and properties.trending_ids | length > 0 and trendingItems | length > 0 %}
+  <div class="sa-home-trending" data-aos="fade-up">
+    <div class="sa-home-trending-head">
+      <div class="sa-home-trending-chip">
+        <i class="fa-solid fa-trophy"></i>
+        <span>Best Sellers</span>
+      </div>
+      <h2>Trending Products</h2>
+      <p>Our best-selling tools trusted by thousands</p>
+    </div>
+
+    <div class="sa-home-trending-grid">
+      {% for item in trendingItems %}
+        {% if item.type == 'product' %}
+          {% set image = (item.image_urls[0] if item.image_urls and item.image_urls|length > 0 else (item.image_url if item.image_url else '/assets/hero.jpg')) %}
+          {% set hasStock = false %}
+          {% if item.variants and item.variants|length > 0 %}
+            {% for variant in item.variants %}
+              {% if variant.stock == -1 or variant.stock > 0 %}
+                {% set hasStock = true %}
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            {% set hasStock = true %}
+          {% endif %}
+          {% set statusText = item.status_text|default('')|lower %}
+          {% set serviceStatus = ('Offline' if ('offline' in statusText or 'detected' in statusText or 'updating' in statusText) else 'Online') %}
+
+          <a class="sa-home-trending-card" href="{{ ('/product/' + item.path) | shopUrl }}">
+            <div class="sa-home-trending-media">
+              <div class="sa-home-trending-overlay"></div>
+              <div class="sa-home-trending-glow"></div>
+              <img src="{{ image }}" alt="{{ item.name }}" loading="lazy" onerror="this.src='/assets/hero.jpg'">
+              <div class="sa-home-trending-badges">
+                <span class="sa-home-trending-badge best">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i>
+                  Popular
+                </span>
+                {% if hasStock %}
+                  <span class="sa-home-trending-badge stock">
+                    <span class="dot"></span>
+                    In Stock
+                  </span>
+                {% endif %}
+              </div>
+            </div>
+
+            <div class="sa-home-trending-body">
+              <div class="sa-home-trending-row-top">
+                <h3>{{ item.name }}</h3>
+                <span class="sa-home-trending-service {{ 'online' if serviceStatus == 'Online' else 'offline' }}">
+                  <span class="dot"></span>
+                  {{ serviceStatus }}
+                </span>
+              </div>
+
+              <div class="sa-home-trending-row-bottom">
+                <div class="sa-home-trending-price">
+                  <span>Starting at</span>
+                  <strong>{{ formatPrice(item.min_price, item.currency) }}</strong>
+                </div>
+                <span class="sa-home-trending-buy">
+                  <i class="fa-solid fa-bag-shopping"></i>
+                  Buy Now
+                </span>
+              </div>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <div style="text-align: center; margin-bottom: 2rem; position: relative; z-index: 1;" data-aos="fade-up">
+    <div style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.8rem; margin-bottom: 0.75rem; background: rgba(217, 74, 74, 0.08); border: 1px solid rgba(217, 74, 74, 0.15); border-radius: 9999px; font-size: 0.75rem; color: #D94A4A;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+      <span>Products</span>
+    </div>
+    {% if properties.title %}
+    <h2 style="font-size: 2rem; font-weight: 600; color: #fff; text-align: center; margin-bottom: 0.4rem; font-family: 'Geist', sans-serif;">{{ properties.title | renderString }}</h2>
+    {% endif %}
+    {% if properties.subtitle %}
+    <p style="color: rgba(255,255,255,0.5); font-size: 0.95rem; max-width: 600px; margin: 0.5rem auto 0; font-family: 'Geist', sans-serif;">{{ properties.subtitle | renderString }}</p>
+    {% endif %}
+  </div>
+
+  <div style="position: relative; z-index: 1;">
+    <div class="row products justify-content-center">
+      {% if properties.ids|length == 0 %}
+        {% for item in sortedItems %}
+          <div class="col-6 col-md-6 col-lg-3 col-xl-3">
+            {% render_snippet "product-card.njk", product=item %}
+          </div>
+        {% endfor %}
+      {% else %}
+        {% for item in helpers.components.products.getItemsByIds(sortedItems, properties.ids) %}
+          <div class="col-6 col-md-6 col-lg-3 col-xl-3">
+            {% render_snippet "product-card.njk", product=item %}
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+
+</section>

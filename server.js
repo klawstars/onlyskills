@@ -1866,6 +1866,7 @@ app.use(
           lower === "host" ||
           lower === "content-length" ||
           lower === "connection" ||
+          lower === "accept-encoding" ||
           lower === "cookie" ||
           lower === "x-forwarded-for" ||
           lower === "x-real-ip" ||
@@ -1901,6 +1902,7 @@ app.use(
       if (!requestHeaders.has("accept")) {
         requestHeaders.set("Accept", "application/json");
       }
+      requestHeaders.set("Accept-Encoding", "identity");
 
       const methodHasBody = !["GET", "HEAD"].includes(req.method.toUpperCase());
       const body = methodHasBody && req.body && req.body.length > 0 ? req.body : undefined;

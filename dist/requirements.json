@@ -1,0 +1,202 @@
+{
+  "products": {
+    "576480": {
+      "requirements": [
+        { "icon": "Monitor", "label": "Supported OS", "value": "Windows 10 / 11" },
+        { "icon": "Cpu", "label": "Processors", "value": "Intel & AMD" },
+        { "icon": "ShieldAlert", "label": "Cheat Type", "value": "External" },
+        { "icon": "ShieldCheck", "label": "Stream Proof", "value": "No" },
+        { "icon": "Gamepad2", "label": "Tournament Ready", "value": "Yes" }
+      ]
+    },
+    "576485": {
+      "requirements": [
+        { "icon": "Monitor", "label": "Supported OS", "value": "Windows 10 / 11" },
+        { "icon": "Cpu", "label": "Processors", "value": "Intel / AMD" },
+        { "icon": "HardDrive", "label": "USB Required", "value": "8GB+" },
+        { "icon": "Settings", "label": "Format Needed", "value": "Full Re-install" },
+        { "icon": "Zap", "label": "BIOS Action", "value": "Flash BIOS Required" }
+      ]
+    },
+    "576486": {
+      "requirements": [
+        { "icon": "Monitor", "label": "Supported OS", "value": "Windows 10 / 11" },
+        { "icon": "Cpu", "label": "Processors", "value": "Intel / AMD" },
+        { "icon": "Settings", "label": "BIOS Mode", "value": "UEFI Only" },
+        { "icon": "HardDrive", "label": "Disk Format", "value": "GPT Only" },
+        { "icon": "ShieldCheck", "label": "Compatibility", "value": "All Motherboards" }
+      ]
+    },
+    "585799": {
+      "requirements": [
+        { "icon": "Monitor", "label": "Supported OS", "value": "Windows 10 / 11" },
+        { "icon": "Cpu", "label": "Processors", "value": "Intel & AMD" },
+        { "icon": "ShieldAlert", "label": "Cheat Type", "value": "External" },
+        { "icon": "ShieldCheck", "label": "Stream Proof", "value": "No" },
+        { "icon": "Gamepad2", "label": "Tournament Ready", "value": "Yes" }
+      ]
+    },
+    "585817": {
+      "requirements": [
+        { "icon": "Monitor", "label": "Supported OS", "value": "Windows 10 / 11" },
+        { "icon": "Cpu", "label": "Processors", "value": "Intel & AMD" },
+        { "icon": "ShieldAlert", "label": "Cheat Type", "value": "External" },
+        { "icon": "ShieldCheck", "label": "Stream Proof", "value": "No" },
+        { "icon": "Gamepad2", "label": "Tournament Ready", "value": "Yes" }
+      ]
+    },
+    "625265": {
+      "requirements": [
+        { "icon": "Monitor", "label": "Supported OS", "value": "Windows 10 / 11" },
+        { "icon": "Cpu", "label": "Processors", "value": "Intel & AMD" },
+        { "icon": "ShieldAlert", "label": "Cheat Type", "value": "External" },
+        { "icon": "ShieldCheck", "label": "Stream Proof", "value": "No" },
+        { "icon": "Gamepad2", "label": "Tournament Ready", "value": "Yes" }
+      ]
+    },
+    "625266": {
+      "requirements": [
+        { "icon": "Monitor", "label": "Supported OS", "value": "Windows 10 / 11" },
+        { "icon": "Cpu", "label": "Processors", "value": "Intel & AMD" },
+        { "icon": "ShieldAlert", "label": "Cheat Type", "value": "External" },
+        { "icon": "ShieldCheck", "label": "Stream Proof", "value": "Yes" },
+        { "icon": "Gamepad2", "label": "Tournament Ready", "value": "Yes" }
+      ]
+    },
+    "625268": {
+      "requirements": [
+        { "icon": "Monitor", "label": "Supported OS", "value": "Windows 10 / 11" },
+        { "icon": "Cpu", "label": "Processors", "value": "Intel & AMD" },
+        { "icon": "ShieldAlert", "label": "Cheat Type", "value": "External" },
+        { "icon": "ShieldCheck", "label": "Stream Proof", "value": "No" },
+        { "icon": "Gamepad2", "label": "Tournament Ready", "value": "Yes" }
+      ]
+    },
+    "625269": {
+      "requirements": [
+        { "icon": "Monitor", "label": "Supported OS", "value": "Windows 10 / 11" },
+        { "icon": "Cpu", "label": "Processors", "value": "Intel & AMD" },
+        { "icon": "ShieldAlert", "label": "Cheat Type", "value": "External" },
+        { "icon": "ShieldCheck", "label": "Stream Proof", "value": "No" },
+        { "icon": "Zap", "label": "Optimization", "value": "High Performance" }
+      ]
+    },
+    "626791": {
+      "requirements": [
+        { "icon": "Monitor", "label": "Supported OS", "value": "Windows 10 / 11" },
+        { "icon": "Cpu", "label": "Processors", "value": "Intel & AMD" },
+        { "icon": "ShieldAlert", "label": "Cheat Type", "value": "Internal" },
+        { "icon": "Zap", "label": "Features", "value": "Silent Aim / Chams" },
+        { "icon": "ShieldCheck", "label": "Status", "value": "Undetected" }
+      ]
+    },
+    "660869": {
+      "requirements": [
+        { "icon": "Monitor", "label": "Supported OS", "value": "Windows 10 / 11" },
+        { "icon": "Cpu", "label": "Processors", "value": "Intel / AMD" },
+        { "icon": "ShieldAlert", "label": "Cheat Type", "value": "External" },
+        { "icon": "ShieldCheck", "label": "Stream Proof", "value": "Yes (All capture)" },
+        { "icon": "Save", "label": "Config", "value": "Cloud / Export" }
+      ]
+    },
+    "660883": {
+      "requirements": [
+        { "icon": "Monitor", "label": "Supported OS", "value": "Win 10 / 11 (Non-24H2)" },
+        { "icon": "Cpu", "label": "Processors", "value": "Intel / AMD" },
+        { "icon": "ShieldAlert", "label": "Cheat Type", "value": "Internal" },
+        { "icon": "Zap", "label": "Visibility", "label": "Ray Tracer Check", "value": "Yes" },
+        { "icon": "AlertCircle", "label": "Refund Policy", "value": "No OS Refunds" }
+      ]
+    },
+    "660887": {
+      "requirements": [
+        { "icon": "Monitor", "label": "Supported OS", "value": "Windows 10 / 11" },
+        { "icon": "Cpu", "label": "Processors", "value": "Intel / AMD" },
+        { "icon": "ShieldAlert", "label": "Cheat Type", "value": "Internal" },
+        { "icon": "ShieldCheck", "label": "HWID Spoofer", "value": "Included" },
+        { "icon": "ShoppingBag", "label": "Version", "value": "Epic Games Support" }
+      ]
+    },
+    "660890": {
+      "requirements": [
+        { "icon": "Monitor", "label": "Supported OS", "value": "Windows 10 / 11" },
+        { "icon": "Cpu", "label": "Processors", "value": "Intel / AMD" },
+        { "icon": "ShieldAlert", "label": "Cheat Type", "value": "Internal" },
+        { "icon": "Zap", "label": "Exploits", "value": "Flyhack / Spiderman" },
+        { "icon": "MousePointer", "label": "UI Style", "value": "Draggable ESP" }
+      ]
+    },
+    "660900": {
+      "requirements": [
+        { "icon": "Monitor", "label": "Supported OS", "value": "Win 10 / 11 (Non-24H2)" },
+        { "icon": "Cpu", "label": "Processors", "value": "Intel / AMD" },
+        { "icon": "ShieldAlert", "label": "Cheat Type", "value": "Internal" },
+        { "icon": "ShieldCheck", "label": "HWID Spoofer", "value": "Included" },
+        { "icon": "Zap", "label": "Features", "value": "Skinchanger / Glides" }
+      ]
+    },
+    "660926": {
+      "requirements": [
+        { "icon": "Monitor", "label": "Supported OS", "value": "Windows 10 / 11" },
+        { "icon": "Cpu", "label": "Processors", "value": "Intel & AMD" },
+        { "icon": "ShieldAlert", "label": "Cheat Type", "value": "Internal" },
+        { "icon": "ShieldCheck", "label": "Stream Proof", "value": "Yes" },
+        { "icon": "Flame", "label": "Raiding", "value": "Advanced Raid ESP" }
+      ]
+    },
+    "661167": {
+      "requirements": [
+        { "icon": "Monitor", "label": "Supported OS", "value": "Windows 10 / 11" },
+        { "icon": "Cpu", "label": "Processors", "value": "Intel / AMD" },
+        { "icon": "ShieldAlert", "label": "Cheat Type", "value": "External" },
+        { "icon": "ShieldCheck", "label": "HWID Spoofer", "value": "Included" },
+        { "icon": "Zap", "label": "Aim Style", "value": "Magnetic Triggerbot" }
+      ]
+    },
+    "661182": {
+      "requirements": [
+        { "icon": "Monitor", "label": "Supported OS", "value": "Windows 10 / 11" },
+        { "icon": "Cpu", "label": "Processors", "value": "Intel & AMD" },
+        { "icon": "ShieldAlert", "label": "Cheat Type", "value": "External" },
+        { "icon": "ShieldCheck", "label": "Stream Proof", "value": "Yes" },
+        { "icon": "Gamepad2", "label": "Legit Playing", "value": "Highly Recommended" }
+      ]
+    },
+    "670139": {
+      "requirements": [
+        { "icon": "Monitor", "label": "Supported OS", "value": "Windows 10 / 11" },
+        { "icon": "Cpu", "label": "Processors", "value": "Intel / AMD" },
+        { "icon": "ShieldAlert", "label": "Tool Type", "value": "Internal Unlocker" },
+        { "icon": "ShieldCheck", "label": "HWID Spoofer", "value": "Included (Non-TPM)" },
+        { "icon": "Zap", "label": "Impact", "value": "Soft Unlock Items" }
+      ]
+    },
+    "676891": {
+      "requirements": [
+        { "icon": "Monitor", "label": "Supported OS", "value": "Windows 10 / 11" },
+        { "icon": "Cpu", "label": "Processors", "value": "Intel / AMD" },
+        { "icon": "ShieldAlert", "label": "Cheat Type", "value": "External" },
+        { "icon": "MousePointer", "label": "Interface", "value": "Draggable UI" },
+        { "icon": "ShieldCheck", "label": "Detection", "value": "High Security Level" }
+      ]
+    },
+    "Battlefield_6_Ignite": {
+      "requirements": [
+        { "icon": "Monitor", "label": "Supported OS", "value": "Windows 10 / 11" },
+        { "icon": "Cpu", "label": "Processors", "value": "Intel / AMD" },
+        { "icon": "ShieldAlert", "label": "Cheat Type", "value": "Internal" },
+        { "icon": "Zap", "label": "Aimbot", "value": "Memory / Silent" },
+        { "icon": "ShieldCheck", "label": "Protection", "value": "Active Bypass" }
+      ]
+    },
+    "676897": {
+      "requirements": [
+        { "icon": "Monitor", "label": "Supported OS", "value": "Windows 10 / 11" },
+        { "icon": "Cpu", "label": "Processors", "value": "Intel & AMD" },
+        { "icon": "ShieldAlert", "label": "Cheat Type", "value": "External" },
+        { "icon": "ShieldCheck", "label": "Stream Proof", "value": "No" },
+        { "icon": "Zap", "label": "Aim Tech", "value": "Advanced Prediction" }
+      ]
+    }
+  }
+}

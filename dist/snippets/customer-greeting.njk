@@ -1,0 +1,42 @@
+<div class="cust-header">
+  <span class="cust-header-welcome" id="cust-greeting">Welcome Back!</span>
+  <h1 class="cust-header-title">Customer Dashboard</h1>
+  <p class="cust-header-sub">Logged in as {{ shop_customer.email }}</p>
+</div>
+<script>
+(function() {
+  var greetings = [
+    "Welcome back again.",
+    "Hey, welcome back.",
+    "Hi there",
+    "Hello",
+    "Good to have you back.",
+    "Nice seeing you again.",
+    "Hey there, welcome back.",
+    "Back again",
+    "Well hello again.",
+    "Welcome, good to see you.",
+    "Hey, good to see you.",
+    "Hello again",
+    "You're back, nice.",
+    "Welcome back, friend.",
+    "Hi again.",
+    "Good seeing you.",
+    "Hey again.",
+    "Nice to have you here.",
+    "Glad you're here.",
+    "Welcome back, good to see you."
+  ];
+  var key = 'ux_greeting';
+  var el = document.getElementById('cust-greeting');
+  if (!el) return;
+  var saved = sessionStorage.getItem(key);
+  if (saved) {
+    el.textContent = saved;
+  } else {
+    var g = greetings[Math.floor(Math.random() * greetings.length)];
+    sessionStorage.setItem(key, g);
+    el.textContent = g;
+  }
+})();
+</script>

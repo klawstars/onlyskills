@@ -1,0 +1,144 @@
+<link rel="stylesheet" href="{{ 'features_utilities.css' | assetUrl }}" />
+
+<section id="ux-features" class="component" data-component-id="{{ componentId }}">
+  <div class="glow-center"></div>
+  <div class="glow-top-right"></div>
+  <div class="glow-bottom-left"></div>
+  <div class="ux-f-inner" data-aos="fade-up">
+    <div class="ux-f-badge">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="m21.838 11.126l-.229 2.436c-.378 4.012-.567 6.019-1.75 7.228C18.678 22 16.906 22 13.36 22h-2.72c-3.545 0-5.317 0-6.5-1.21s-1.371-3.216-1.749-7.228l-.23-2.436c-.18-1.912-.27-2.869.058-3.264a1 1 0 0 1 .675-.367c.476-.042 1.073.638 2.268 1.998c.618.704.927 1.055 1.271 1.11a.92.92 0 0 0 .562-.09c.319-.16.53-.595.955-1.464l2.237-4.584C10.989 2.822 11.39 2 12 2s1.011.822 1.813 2.465l2.237 4.584c.424.87.636 1.304.955 1.464c.176.089.37.12.562.09c.344-.055.653-.406 1.271-1.11c1.195-1.36 1.792-2.04 2.268-1.998a1 1 0 0 1 .675.367c.327.395.237 1.352.057 3.264M12.952 12.7l-.098-.176c-.38-.682-.57-1.023-.854-1.023s-.474.341-.854 1.023l-.098.176c-.108.194-.162.29-.246.354c-.085.064-.19.088-.4.136l-.19.043c-.738.167-1.107.25-1.195.533c-.088.282.164.576.667 1.164l.13.152c.143.168.215.251.247.354c.032.104.021.215 0 .438l-.02.204c-.076.784-.114 1.177.115 1.351c.23.175.576.016 1.267-.303l.178-.082c.197-.09.295-.135.399-.135s.202.045.399.135l.178.082c.691.319 1.037.478 1.267.303c.23-.174.191-.567.115-1.352l-.02-.203c-.021-.223-.032-.334 0-.437c.032-.104.104-.187.247-.355l.13-.152c.503-.588.755-.882.667-1.165c-.088-.282-.457-.365-1.195-.532l-.19-.043c-.21-.048-.315-.072-.4-.136c-.084-.063-.138-.16-.246-.354" clip-rule="evenodd"/></svg>
+      <span>OnlySkills</span>
+    </div>
+    {% if properties.title %}
+    <h2 class="ux-f-title" data-aos="fade-up">{{ properties.title | renderString }}</h2>
+    {% endif %}
+    {% if properties.subtitle %}
+    <p class="ux-f-subtitle" data-aos="fade-up">{{ properties.subtitle | renderString }}</p>
+    {% endif %}
+    <div class="ux-f-grid">
+      <div class="ux-f-card ux-f-card-sm">
+        <div class="ux-f-card-visual">
+          <img src="https://i.imgur.com/sPDdCze.png" alt="Globe" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="ux-f-card-info">
+          <div class="ux-f-card-info-title">Customers around the world</div>
+          <div class="ux-f-card-info-desc">Users all over the world using our cheats.</div>
+        </div>
+      </div>
+      <div class="ux-f-card ux-f-card-sm">
+        <div class="ux-f-card-visual">
+          <div id="shield-animation-container">
+            <svg class="shield-icon" width="24" height="24" viewBox="0 0 24 24">
+              <path fill="#D94A4A" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12c5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+            </svg>
+            <div class="wave-container">
+              <div class="wave wave-1"></div>
+              <div class="wave wave-2"></div>
+              <div class="wave wave-3"></div>
+            </div>
+          </div>
+        </div>
+        <div class="ux-f-card-info">
+          <div class="ux-f-card-info-title">Safe &amp; Undetected.</div>
+          <div class="ux-f-card-info-desc">We provide the most secure and undetected products on the market.</div>
+        </div>
+      </div>
+      <div class="ux-f-card ux-f-card-md">
+        <div class="ux-f-card-visual">
+          <div class="ux-f-delivery">
+            <div class="ux-f-delivery-order">
+              <span class="ux-f-delivery-order-id">Order #8492</span>
+              <span class="ux-f-delivery-status">Delivered</span>
+            </div>
+            <div class="ux-f-delivery-bar">
+              <div class="ux-f-delivery-bar-track">
+                <div class="ux-f-delivery-bar-fill"></div>
+              </div>
+            </div>
+            <div class="ux-f-delivery-details">
+              <div class="ux-f-delivery-details-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M21 16.5C21 16.88 20.79 17.21 20.47 17.38L12.57 21.82C12.41 21.94 12.21 22 12 22C11.79 22 11.59 21.94 11.43 21.82L3.53 17.38C3.21 17.21 3 16.88 3 16.5V7.5C3 7.12 3.21 6.79 3.53 6.62L11.43 2.18C11.59 2.06 11.79 2 12 2C12.21 2 12.41 2.06 12.57 2.18L20.47 6.62C20.79 6.79 21 7.12 21 7.5V16.5M12 4.15L5 8.09V15.91L12 19.85L19 15.91V8.09L12 4.15M12 6.23L16.9 9.16L12 12.09L7.1 9.16L12 6.23M17 14.89L13 17.2V12.46L17 10.15V14.89Z"/></svg>
+              </div>
+              <div class="ux-f-delivery-details-text">
+                <span class="ux-f-delivery-details-title">Login Details</span>
+                <span class="ux-f-delivery-details-sub">Sent to email</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ux-f-card-info">
+          <div class="ux-f-card-info-title">Instant Delivery.</div>
+          <div class="ux-f-card-info-desc">Experience instant key delivery.</div>
+        </div>
+      </div>
+      <div class="ux-f-card ux-f-card-md">
+        <div class="ux-f-card-visual">
+          <div class="ux-f-support-text">
+            <span>24/7</span>
+            <span>Support</span>
+          </div>
+        </div>
+        <div class="ux-f-card-info">
+          <div class="ux-f-card-info-title">24/7 Support</div>
+          <div class="ux-f-card-info-desc">We provide fast, responsive support you'll never be left waiting, and our team is always ready to help anytime.</div>
+        </div>
+      </div>
+      <div class="ux-f-card ux-f-card-lg">
+        <div class="ux-f-card-visual">
+          <div class="ux-f-menu-outer">
+          <div class="ux-f-menu" x-data="{ activeTab: 'aim' }">
+            <div class="ux-f-menu-row" x-on:click="activeTab = 'aim'">
+              <div class="ux-f-menu-icon" :class="{'ux-f-menu-icon-active': activeTab === 'aim'}"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><g fill="none"><path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M12 2a1 1 0 0 1 1 1v.055A9.004 9.004 0 0 1 20.945 11H21a1 1 0 1 1 0 2h-.055A9.004 9.004 0 0 1 13 20.945V21a1 1 0 1 1-2 0v-.055A9.004 9.004 0 0 1 3.055 13H3a1 1 0 1 1 0-2h.055A9.004 9.004 0 0 1 11 3.055V3a1 1 0 0 1 1-1m1 3.07V6a1 1 0 0 1-1.993.117L11 6v-.93a7.01 7.01 0 0 0-5.888 5.676L5.071 11H6a1 1 0 0 1 .117 1.993L6 13h-.93a7.01 7.01 0 0 0 5.676 5.888l.254.041V18a1 1 0 0 1 1.993-.117L13 18v.93a7.01 7.01 0 0 0 5.888-5.676l.041-.254H18a1 1 0 0 1-.117-1.993L18 11h.93a7.01 7.01 0 0 0-5.676-5.888zm-1 5.43a1.5 1.5 0 1 1 0 3a1.5 1.5 0 0 1 0-3"/></g></svg></div>
+              <span class="ux-f-menu-label">Aimbot</span>
+              <label class="ux-f-toggle"><input type="checkbox" checked><span class="ux-f-toggle-slider"></span></label>
+            </div>
+            <div class="ux-f-menu-row" x-on:click="activeTab = 'esp'">
+              <div class="ux-f-menu-icon" :class="{'ux-f-menu-icon-active': activeTab === 'esp'}"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M15 12a3 3 0 1 1-6 0a3 3 0 0 1 6 0"/><path d="M2 12c1.6-4.097 5.336-7 10-7s8.4 2.903 10 7c-1.6 4.097-5.336 7-10 7s-8.4-2.903-10-7"/></g></svg></div>
+              <span class="ux-f-menu-label">Visible Only</span>
+              <label class="ux-f-toggle"><input type="checkbox" checked><span class="ux-f-toggle-slider"></span></label>
+            </div>
+            <div class="ux-f-menu-row" x-on:click="activeTab = 'misc'">
+              <div class="ux-f-menu-icon" :class="{'ux-f-menu-icon-active': activeTab === 'misc'}"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="m9.25 22l-.4-3.2q-.325-.125-.612-.3t-.563-.375L4.7 19.375l-2.75-4.75l2.575-1.95Q4.5 12.5 4.5 12.338v-.675q0-.163.025-.338L1.95 9.375l2.75-4.75l2.975 1.25q.275-.2.575-.375t.6-.3l.4-3.2h5.5l.4 3.2q.325.125.613.3t.562.375l2.975-1.25l2.75 4.75l-2.575 1.95q.025.175.025.338v.674q0 .163-.05.338l2.575 1.95l-2.75 4.75l-2.95-1.25q-.275.2-.575.375t-.6.3l-.4 3.2zM11 20h1.975l.35-2.65q.775-.2 1.438-.587t1.212-.938l2.475 1.025l.975-1.7l-2.15-1.625q.125-.35.175-.737T17.5 12t-.05-.787t-.175-.738l2.15-1.625l-.975-1.7l-2.475 1.05q-.55-.575-1.212-.962t-1.438-.588L13 4h-1.975l-.35 2.65q-.775.2-1.437.588t-1.213.937L5.55 7.15l-.975 1.7l2.15 1.6q-.125.375-.175.75t-.05.8q0 .4.05.775t.175.75l-2.15 1.625l.975 1.7l2.475-1.05q.55.575 1.213.963t1.437.587zm1.05-4.5q1.45 0 2.475-1.025T15.55 12t-1.025-2.475T12.05 8.5q-1.475 0-2.488 1.025T8.55 12t1.013 2.475T12.05 15.5M12 12"/></svg></div>
+              <span class="ux-f-menu-label">Silent Aim</span>
+              <label class="ux-f-toggle"><input type="checkbox" checked><span class="ux-f-toggle-slider"></span></label>
+            </div>
+            <div class="ux-f-menu-row" x-on:click="activeTab = 'conf'">
+              <div class="ux-f-menu-icon" :class="{'ux-f-menu-icon-active': activeTab === 'conf'}"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16"><path fill="currentColor" d="M4 0v7.268a2 2 0 1 1-2 0V0zm0 12v4H2v-4zm5-9.732V0H7v2.268a2 2 0 1 0 2 0M9 16V7H7v9zm5-8.732V0h-2v7.268a2 2 0 1 0 2 0M14 16v-4h-2v4z"/></svg></div>
+              <span class="ux-f-menu-label">Aimbot Smoothing</span>
+              <input type="range" min="0" max="100" value="0" class="ux-f-range">
+            </div>
+            <div class="ux-f-menu-row">
+              <div class="ux-f-menu-icon ux-f-menu-icon-hidden"></div>
+              <span class="ux-f-menu-label">Aimbot FOV</span>
+              <input type="range" min="0" max="100" value="40" class="ux-f-range">
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="ux-f-card-info">
+          <div class="ux-f-card-info-title">Easy Setup</div>
+          <div class="ux-f-card-info-desc">Our products are user-friendly and require no technical skills you can even try them from the menu above.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ux-payment" style="position: relative; padding: 5rem 0 3rem; text-align: center; overflow: visible;">
+  <div class="glow-center"></div>
+  <div class="glow-bottom-left"></div>
+  <div style="max-width: 1500px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 1;">
+    <div data-aos="fade-up" style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
+      <div style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.8rem; background: rgba(217, 74, 74, 0.08); border: 1px solid rgba(217, 74, 74, 0.15); border-radius: 9999px; font-size: 0.75rem; color: #D94A4A;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+        <span>Payment</span>
+      </div>
+      <h2 style="font-size: 2.25rem; font-weight: 700; color: #fff; margin: 0; font-family: 'Geist', sans-serif;">Payment Methods</h2>
+      <p style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.45); max-width: 550px; margin: 0; font-family: 'Geist', sans-serif;">We offer safe and trusted payment methods to ensure your purchase is fully protected.</p>
+    </div>
+    <div data-aos="fade-up" data-aos-delay="100" style="margin-top: 2.5rem;">
+      <img src="https://i.imgur.com/mkqRQEu.png" alt="Payment Methods" class="ux-payment-img-desktop" style="width: 100%; height: auto; border-radius: 12px;">
+      <img src="https://i.imgur.com/6ytG0oD.png" alt="Payment Methods" class="ux-payment-img-mobile" style="height: auto; border-radius: 12px; display: none;">
+    </div>
+  </div>
+</section>

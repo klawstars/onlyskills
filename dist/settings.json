@@ -1,0 +1,391 @@
+{
+    "templates": {
+        "shop": {
+            "layout": "master",
+            "components": {
+                "hero": {
+                    "type": "hero",
+                    "properties": {
+                        "title": "The Marketplace built to be better.",
+                        "subtitle": null,
+                        "cta": "/#products",
+                        "cta_text": "Explore Products",
+                        "show_searchbar": false,
+                        "show_feedback_rating": false,
+                        "show_products_sold": false,
+                        "show_total_customers": true,
+                        "alignment": "center",
+                        "height": "tall",
+                        "background_image": null,
+                        "side_image": null
+                    }
+                },
+                "products": {
+                    "type": "products",
+                    "properties": {
+                        "title": "Our Products",
+                        "subtitle": "Browse our selection of premium products",
+                        "trending_ids": [
+                            "670139",
+                            "661182",
+                            "625265"
+                        ]
+                    }
+                },
+                "feedbacks": {
+                    "type": "feedbacks",
+                    "properties": {
+                        "title": "Customer Reviews",
+                        "subtitle": "See what our customers have to say",
+                        "amount": 4
+                    }
+                },
+                "features": {
+                    "type": "features",
+                    "properties": {
+                        "title": "Why Choose Us?",
+                        "subtitle": "Experience unmatched service quality. Our dedicated team is here around the clock to support you and simplify every step of the process.",
+                        "items_per_row": 3,
+                        "features": [
+                            {
+                                "title": "Customers around the world",
+                                "description": "Users all over the world using our products.",
+                                "icon": "fas fa-globe"
+                            },
+                            {
+                                "title": "Safe & Undetected",
+                                "description": "We provide the most secure and undetected products on the market.",
+                                "icon": "fas fa-shield-alt"
+                            },
+                            {
+                                "title": "Instant Delivery",
+                                "description": "Experience instant key delivery after purchase.",
+                                "icon": "fas fa-bolt"
+                            },
+                            {
+                                "title": "24/7 Support",
+                                "description": "We provide fast, responsive support — our team is always ready to help anytime.",
+                                "icon": "fas fa-headset"
+                            },
+                            {
+                                "title": "Easy Setup",
+                                "description": "Our products are user-friendly and require no technical skills.",
+                                "icon": "fas fa-cogs"
+                            }
+                        ]
+                    }
+                },
+                "socials": {
+                    "type": "socials",
+                    "properties": {
+                        "title": "Join Our Community",
+                        "subtitle": null
+                    }
+                },
+                "faq": {
+                    "type": "faq",
+                    "properties": {
+                        "title": "Frequently Asked Questions",
+                        "subtitle": "Got questions? We've got answers.",
+                        "items": [
+                            {
+                                "question": "How do I receive my product?",
+                                "answer": "After completing your purchase, your product will be delivered instantly to your email. You can also access it from your customer dashboard."
+                            },
+                            {
+                                "question": "What payment methods do you accept?",
+                                "answer": "We accept a variety of payment methods including credit/debit cards, PayPal, cryptocurrency, and more."
+                            },
+                            {
+                                "question": "Your products is undetectable ?",
+                                "answer": "Our products are continuously worked on by our developers to keep them undetected. However, using our software on a secondary account is highly recommended."
+                            },
+                            {
+                                "question": "What if I need help or support?",
+                                "answer": "Our support team is available 24/7. You can reach us through our Discord server or by opening a support ticket."
+                            },
+                            {
+                                "question": "Can I get a refund?",
+                                "answer": "Please refer to our refund policy page for detailed information regarding refunds and eligibility."
+                            }
+                        ]
+                    }
+                }
+            },
+            "components_order": [
+                "hero",
+                "products",
+                "features",
+                "faq",
+                "socials"
+            ]
+        },
+        "cart": {
+            "layout": "master",
+            "components": {
+                "cart-page": {
+                    "type": "cart-page",
+                    "properties": []
+                }
+            },
+            "components_order": [
+                "cart-page"
+            ]
+        },
+        "products": {
+            "layout": "master",
+            "components": {
+                "products-page": {
+                    "type": "products-page",
+                    "properties": {
+                        "default_title": "Our Products",
+                        "category_title": "{{ category.name }} Products"
+                
+                    }
+                }
+            },
+            "components_order": [
+                "products-page"
+            ]
+        },
+        "product": {
+            "layout": "master",
+            "components": {
+                "product-page": {
+                    "type": "product-page",
+                    "properties": {
+                        "hide_add_to_cart": false,
+                        "hide_buy_now": false
+                    }
+                }
+            },
+            "components_order": [
+                "product-page"
+            ]
+        },
+        "status": {
+            "layout": "master",
+            "components": {
+                "status-page": {
+                    "type": "status-page",
+                    "properties": []
+                }
+            },
+            "components_order": [
+                "status-page"
+            ]
+        },
+        "faq": {
+            "layout": "master",
+            "components": {},
+            "components_order": []
+        },
+        "terms": {
+            "layout": "master",
+            "components": {
+                "terms-page": {
+                    "type": "terms-page",
+                    "properties": []
+                }
+            },
+            "components_order": [
+                "terms-page"
+            ]
+        },
+        "privacy-policy": {
+            "layout": "master",
+            "components": {
+                "privacy-policy-page": {
+                    "type": "privacy-policy-page",
+                    "properties": []
+                }
+            },
+            "components_order": [
+                "privacy-policy-page"
+            ]
+        },
+        "refund-policy": {
+            "layout": "master",
+            "components": {
+                "refund-policy-page": {
+                    "type": "refund-policy-page",
+                    "properties": []
+                }
+            },
+            "components_order": [
+                "refund-policy-page"
+            ]
+        },
+        "blog": {
+            "layout": "master",
+            "components": {
+                "blog-posts": {
+                    "type": "blog-posts",
+                    "properties": {
+                        "title": "Our Blog"
+                    }
+                }
+            },
+            "components_order": [
+                "blog-posts"
+            ]
+        },
+        "blog-post": {
+            "layout": "master",
+            "components": {
+                "blog-post": {
+                    "type": "blog-post-page",
+                    "properties": []
+                }
+            },
+            "components_order": [
+                "blog-post-page"
+            ]
+        },
+        "customer-dashboard": {
+            "layout": "master",
+            "components": [],
+            "components_order": []
+        },
+        "customer-invoices": {
+            "layout": "master",
+            "components": [],
+            "components_order": []
+        },
+        "customer-tickets": {
+            "layout": "master",
+            "components": [],
+            "components_order": []
+        },
+        "customer-ticket": {
+            "layout": "master",
+            "components": [],
+            "components_order": []
+        },
+        "customer-balance": {
+            "layout": "master",
+            "components": [],
+            "components_order": []
+        },
+        "customer-affiliate": {
+            "layout": "master",
+            "components": [],
+            "components_order": []
+        },
+        "maintenance": {
+            "layout": "master",
+            "components": [],
+            "components_order": []
+        },
+        "custom-page": {
+            "layout": "master",
+            "components": [],
+            "components_order": []
+        }
+    },
+    "global": {
+        "properties": {
+            "theme_color": "#4A90D9",
+            "primary_background_color": "#070812",
+            "secondary_background_color": "#0a0d18",
+            "primary_border_color": "#4A90D926",
+            "font": "Geist",
+            "navbar_logo_url": "https://onlyskills.xyz/",
+            "navbar_support_url": "https://onlyskills.mysellauth.com/customer/tickets",
+            "navbar_customer_panel_url": "https://onlyskills.mysellauth.com/customer/dashboard",
+            "snow": false,
+            "snow_color": "#ffffff",
+            "product_card_image_aspect_ratio": "16/9",
+            "product_page_image_aspect_ratio": "16/9",
+            "product_image_fit": "cover",
+            "group_card_image_aspect_ratio": "16/9",
+            "group_image_fit": "cover",
+            "blog_card_image_aspect_ratio": "16/9",
+            "blog_image_fit": "cover"
+        },
+        "components": {
+            "announcement": {
+                "text": "Trusted by thousands of satisfied customers",
+                "link": "/#products",
+                "link_text": "View Products"
+            },
+            "navbar": {
+                "show_shop_name": true,
+                "show_logo": true,
+                "left_links": [
+                    {
+                        "text": "Products",
+                        "link": "/products",
+                        "shape": "regular"
+                    },
+                    {
+                        "text": "Status",
+                        "link": "/status",
+                        "shape": "regular"
+                    },
+                    {
+                        "text": "FAQ",
+                        "link": "/faq",
+                        "shape": "regular"
+                    },
+                    {
+                        "text": "Contact",
+                        "link": "/contact",
+                        "shape": "regular"
+                    },
+                    {
+                        "text": "Discord",
+                        "link": "#",
+                        "shape": "regular",
+                        "new_tab": true
+                    }
+                ],
+                "right_links": [
+                    {
+                        "text": "Get Started",
+                        "link": "/#products",
+                        "shape": "button"
+                    }
+                ],
+                "hide_currency_selector": true,
+                "hide_customer_dashboard": false,
+                "hide_cart": false
+            },
+            "footer": {
+                "show_shop_name": true,
+                "show_logo": true,
+                "show_socials": true,
+                "links_title": "Navigation",
+                "links": [
+                    {
+                        "text": "Home",
+                        "link": "/"
+                    },
+                    {
+                        "text": "Products",
+                        "link": "/products"
+                    },
+                    {
+                        "text": "Status",
+                        "link": "/status"
+                    }
+                ],
+                "links_2_title": "Legal",
+                "links_2": [
+                    {
+                        "text": "Terms of Service",
+                        "link": "/terms-of-service"
+                    },
+                    {
+                        "text": "Privacy Policy",
+                        "link": "/privacy-policy"
+                    },
+                    {
+                        "text": "Refund Policy",
+                        "link": "/refund-policy"
+                    }
+                ]
+            }
+        }
+    }
+}

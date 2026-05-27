@@ -1,0 +1,62 @@
+<div class="cust-sidebar">
+  <ul class="cust-sidebar-nav">
+    <li>
+      <a href="{{ '/customer/dashboard' | shopUrl }}" class="cust-sidebar-link {{ 'active' if templateName == 'customer-dashboard' }}">
+        <i class="fa-solid fa-gauge"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a href="{{ '/customer/invoices' | shopUrl }}" class="cust-sidebar-link {{ 'active' if templateName == 'customer-invoices' }}">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span>Orders</span>
+      </a>
+    </li>
+    {% if shop.tickets_enabled %}
+      <li>
+        <a href="{{ '/customer/tickets' | shopUrl }}" class="cust-sidebar-link {{ 'active' if templateName == 'customer-tickets' or templateName == 'customer-ticket' }}">
+          <i class="fa-solid fa-ticket"></i>
+          <span>Tickets</span>
+        </a>
+      </li>
+    {% endif %}
+    {% if shop.customer_balance_enabled %}
+      <li>
+        <a href="{{ '/customer/balance' | shopUrl }}" class="cust-sidebar-link {{ 'active' if templateName == 'customer-balance' }}">
+          <i class="fa-solid fa-wallet"></i>
+          <span>Balance</span>
+          <span class="cust-sidebar-badge">
+            <span x-text="appCurrency.format({{ shop_customer.balance }}, 'USD')">
+              {{ formatPrice(shop_customer.balance, 'USD') }}
+            </span>
+          </span>
+        </a>
+      </li>
+    {% endif %}
+    {% if shop.affiliate_enabled %}
+      <li>
+        <a href="{{ '/customer/affiliate' | shopUrl }}" class="cust-sidebar-link {{ 'active' if templateName == 'customer-affiliate' }}">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Affiliate</span>
+        </a>
+      </li>
+    {% endif %}
+    <li>
+      <button type="button" @click="appCustomer.logout()" class="cust-sidebar-link cust-sidebar-logout">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Logout</span>
+      </button>
+    </li>
+  </ul>
+</div>
+<script>
+(function() {
+  var links = document.querySelectorAll('.cust-sidebar-link:not(.cust-sidebar-logout)');
+  links.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      links.forEach(function(l) { l.classList.remove('active'); });
+      this.classList.add('active', 'clicking');
+    });
+  });
+})();
+</script>
