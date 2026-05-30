@@ -30,6 +30,7 @@ const GENERAL_RATE_LIMIT_WINDOW_MS = Number(process.env.GENERAL_RATE_LIMIT_WINDO
 const GENERAL_RATE_LIMIT_MAX = Number(process.env.GENERAL_RATE_LIMIT_MAX) || 240;
 const API_RATE_LIMIT_WINDOW_MS = Number(process.env.API_RATE_LIMIT_WINDOW_MS) || 60000;
 const API_RATE_LIMIT_MAX = Number(process.env.API_RATE_LIMIT_MAX) || 90;
+const SITE_CURRENCY = "EUR";
 const ALLOWED_API_ORIGINS = new Set(
   [SELLAUTH_SHOP_URL, ...(String(process.env.ALLOWED_API_ORIGINS || "").split(","))]
     .map((value) => String(value || "").trim())
@@ -90,7 +91,7 @@ function isAbsoluteUrl(value) {
   return /^https?:\/\//i.test(value) || /^\/\//.test(value);
 }
 
-function formatPrice(value, currency = "USD") {
+function formatPrice(value, currency = SITE_CURRENCY) {
   const amount = Number(value);
   if (!Number.isFinite(amount)) {
     return "";
@@ -104,7 +105,7 @@ function formatPrice(value, currency = "USD") {
       maximumFractionDigits: 2,
     }).format(amount);
   } catch {
-    return `$${amount.toFixed(2)}`;
+    return `€${amount.toFixed(2)}`;
   }
 }
 
@@ -854,7 +855,7 @@ function mapSellAuthProduct(product, categoriesById, themeColor, imageById = new
     max_price: prices.length > 0 ? Math.max(...prices) : 0,
     min_price_slash: slashPrices.length > 0 ? Math.min(...slashPrices) : null,
     max_price_slash: slashPrices.length > 0 ? Math.max(...slashPrices) : null,
-    currency: product?.currency || "USD",
+    currency: SITE_CURRENCY,
     status_color: product?.status_color || (product?.visibility === "on_hold" ? "#f59e0b" : "#22c55e"),
     status_text: product?.status_text || (product?.visibility === "on_hold" ? "On Hold" : "Online"),
     hide_stock_count: false,
@@ -909,7 +910,7 @@ function mapSellAuthGroup(group, productById, imageById = new Map()) {
     max_price: prices.length > 0 ? Math.max(...prices) : 0,
     min_price_slash: slashPrices.length > 0 ? Math.min(...slashPrices) : null,
     max_price_slash: slashPrices.length > 0 ? Math.max(...slashPrices) : null,
-    currency: groupProducts[0]?.currency || "USD",
+    currency: SITE_CURRENCY,
     product_badges: { card: [], page: [] },
     status_color: "#22c55e",
     status_text: "Online",
@@ -1062,7 +1063,17 @@ async function loadSellAuthLiveData(cacheKey) {
   const ungroupedProducts = mappedProducts.filter((product) => !groupedProductIds.has(Number(product.id)));
   const sortedItems = mappedGroups.length > 0 ? [...mappedGroups, ...ungroupedProducts] : ungroupedProducts;
 
-  const feedbacks = ensureArray(feedbacksData).map(mapSellAuthFeedback);
+  const visibleProductNames = new Set(mappedProducts.map((product) => String(product.name || "").toLowerCase()));
+  const feedbacks = ensureArray(feedbacksData)
+    .map(mapSellAuthFeedback)
+    .filter((feedback) => {
+      const items = ensureArray(feedback.items);
+      if (items.length === 0) {
+        return true;
+      }
+
+      return items.some((item) => visibleProductNames.has(String(item?.name || "").toLowerCase()));
+    });
 
   const blogPosts = ensureArray(blogPostsData).map((post) => mapSellAuthBlogPost(post, imageById));
 
@@ -1165,7 +1176,7 @@ function createSampleData() {
       max_price: 9.99,
       min_price_slash: 14.99,
       max_price_slash: 14.99,
-      currency: "USD",
+      currency: SITE_CURRENCY,
       status_color: "#22c55e",
       status_text: "Online",
       hide_stock_count: false,
@@ -1208,7 +1219,7 @@ function createSampleData() {
       max_price: 19.99,
       min_price_slash: 29.99,
       max_price_slash: 29.99,
-      currency: "USD",
+      currency: SITE_CURRENCY,
       status_color: "#22c55e",
       status_text: "Online",
       hide_stock_count: false,
@@ -1248,7 +1259,7 @@ function createSampleData() {
     max_price: 19.99,
     min_price_slash: 14.99,
     max_price_slash: 29.99,
-    currency: "USD",
+    currency: SITE_CURRENCY,
     product_badges: { card: [], page: [] },
     status_color: "#22c55e",
     status_text: "Online",
@@ -1301,7 +1312,7 @@ function createSampleData() {
     unique_id: "INV-1001",
     status: "completed",
     price: 19.99,
-    currency: "USD",
+    currency: SITE_CURRENCY,
     created_at: nowIso,
     url: "#",
     items: [
@@ -1351,7 +1362,7 @@ function createSampleData() {
         id: 301,
         name: "Priority Support",
         description: "Faster response times",
-        currency: "USD",
+        currency: SITE_CURRENCY,
         image_urls: [],
         variants: [{ id: 3001, name: "Addon", price: 4.99 }],
         is_mandatory: false,
@@ -1621,9 +1632,9 @@ async function createContext(req, templateName, routeData) {
     shop: { ...fallbackShop, ...(source.shop || {}) },
     shop_customer: shouldMockCustomer ? defaultShopCustomer : devShopCustomer,
     customer: shouldMockCustomer ? defaultShopCustomer : devShopCustomer,
-    currency: "USD",
-    currency_rates_usd: { USD: 1, EUR: 0.92 },
-    currency_symbols: { USD: "$", EUR: "EUR" },
+    currency: SITE_CURRENCY,
+    currency_rates_usd: { EUR: 1, eur: 1 },
+    currency_symbols: { EUR: "€", eur: "€" },
     altcha: null,
     altcha_shop_customer: null,
     is_embed: false,

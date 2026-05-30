@@ -18,8 +18,8 @@
                 Customer Balance can be used to pay for future orders.
               </p>
               <h5 class="mb-0">
-                <span x-text="appCurrency.format({{ shop_customer.balance }}, 'USD')">
-                  {{ formatPrice(shop_customer.balance, 'USD') }}
+                <span x-text="appCurrency.format({{ shop_customer.balance }}, 'EUR')">
+                  {{ formatPrice(shop_customer.balance, 'EUR') }}
                 </span>
               </h5>
             </div>
@@ -65,7 +65,7 @@
                           class="btn btn-outline-primary position-relative"
                         >
                           <span :class="buyingAmount === {{ amount }} ? 'opacity-0' : 'opacity-100'">
-                            {{ formatPrice(amount, 'USD') }}
+                            {{ formatPrice(amount, 'EUR') }}
                           </span>
                           <template x-if="buyingAmount === {{ amount }}">
                             <span class="position-absolute top-50 start-50 d-flex align-items-center justify-content-center text-accent-500">
@@ -116,7 +116,7 @@
                         -
                       {% endif %}
                     </td>
-                    <td>{{ formatPrice(transaction.amount, 'USD') }}</td>
+                    <td>{{ formatPrice(transaction.amount, 'EUR') }}</td>
                     <td>{{ transaction.created_at | formatDateTime }}</td>
                   </tr>
                 {% endfor %}

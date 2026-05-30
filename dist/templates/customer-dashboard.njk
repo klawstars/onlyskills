@@ -18,8 +18,8 @@
             <div class="cust-stat-card">
               <span class="cust-stat-label">Total Spent</span>
               <span class="cust-stat-value">
-                <span x-text="appCurrency.format({{ shop_customer.total_spent_usd }}, 'USD')">
-                  {{ formatPrice(shop_customer.total_spent_usd, 'USD') }}
+                <span x-text="appCurrency.format({{ shop_customer.total_spent_usd }}, 'EUR')">
+                  {{ formatPrice(shop_customer.total_spent_usd, 'EUR') }}
                 </span>
               </span>
             </div>
@@ -65,8 +65,8 @@
               <div class="cust-stat-card">
                 <span class="cust-stat-label">Balance</span>
                 <span class="cust-stat-value">
-                  <span x-text="appCurrency.format({{ shop_customer.balance }}, 'USD')">
-                    {{ formatPrice(shop_customer.balance, 'USD') }}
+                  <span x-text="appCurrency.format({{ shop_customer.balance }}, 'EUR')">
+                    {{ formatPrice(shop_customer.balance, 'EUR') }}
                   </span>
                 </span>
                 <a href="{{ '/customer/balance' | shopUrl }}" class="cust-topup-link">Top Up</a>

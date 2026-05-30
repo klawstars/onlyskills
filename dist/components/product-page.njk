@@ -1,25 +1,62 @@
 {% set galleryImages = (product.image_urls if product.image_urls and product.image_urls|length > 0 else ([product.image_url] if product.image_url else ['/assets/hero.jpg'])) %}
 {% set displayPrice = (product.variants[0].price if product.variants and product.variants|length > 0 else (product.min_price if product.min_price else 0)) %}
-{% set testimonialsRows = [
-  [
-    { "name": "Alex M.", "rating": 5, "text": "Literally the best provider I've found so far. The internal for Rust is incredibly smooth and the setup was instant.", "date": "2d ago" },
-    { "name": "Sarah K.", "rating": 5, "text": "The built-in spoofer is a lifesaver. Been using it for a week on my main and everything is still green. Highly recommend!", "date": "1w ago" },
-    { "name": "John D.", "rating": 4, "text": "Solid features and great performance. Had a small issue with the overlay at first but support helped me fix it in 5 mins.", "date": "3d ago" },
-    { "name": "Mike R.", "rating": 5, "text": "Insane ESP precision. The skeleton and chams look super clean, no lag at all even in busy areas.", "date": "1d ago" }
-  ],
-  [
-    { "name": "Emily W.", "rating": 5, "text": "Fast delivery and easy to configure. The cloud config feature is so convenient when switching between legit and rage modes.", "date": "5h ago" },
-    { "name": "David B.", "rating": 5, "text": "Just got my key and everything is working perfectly. The installation guide is very straightforward.", "date": "Just now" },
-    { "name": "Chris P.", "rating": 5, "text": "Been searching for a reliable stream-proof solution for a long time. This is it. OBS doesn't show a thing.", "date": "4d ago" },
-    { "name": "Jessica L.", "rating": 5, "text": "The Unlock All tool worked like a charm. Got every camo and operator in seconds. Best value for money.", "date": "2w ago" }
-  ],
-  [
-    { "name": "Ryan T.", "rating": 4, "text": "Good stuff. The external radar is a nice touch for staying safe while still having the edge.", "date": "1d ago" },
-    { "name": "Kevin H.", "rating": 5, "text": "Top tier security. You can tell the devs actually care about bypasses. Ricochet hasn't noticed a thing.", "date": "3h ago" },
-    { "name": "Lisa M.", "rating": 5, "text": "Best customer service ever. They are available 24/7 and actually know what they're talking about.", "date": "5d ago" },
-    { "name": "Tom B.", "rating": 5, "text": "10/10 performance. My FPS stays high and the aimbot prediction is spot on for long range snipes.", "date": "1w ago" }
-  ]
-] %}
+{% set productName = product.name | lower %}
+{% set testimonialsRows = [] %}
+{% if productName == 'valorant unlock all' %}
+  {% set testimonialsRows = [
+    [
+      { "name": "Nolan R.", "rating": 5, "text": "Valorant Unlock All was delivered instantly and everything unlocked exactly as described.", "date": "2d ago" },
+      { "name": "Maya C.", "rating": 5, "text": "Clean process from checkout to setup. The unlocks showed up fast and support answered quickly.", "date": "1w ago" },
+      { "name": "Evan T.", "rating": 5, "text": "Best unlock service I tried. Simple instructions and no weird extra steps.", "date": "3d ago" },
+      { "name": "Lina P.", "rating": 4, "text": "Worked well and the delivery was fast. Support helped me pick the right option.", "date": "1d ago" }
+    ]
+  ] %}
+{% elif productName == 'perm spoofer' %}
+  {% set testimonialsRows = [
+    [
+      { "name": "Adam S.", "rating": 5, "text": "Perm SpOOfer was easy to set up and has been stable since day one.", "date": "5h ago" },
+      { "name": "Theo M.", "rating": 5, "text": "Clear guide, quick activation, and the spoofer did exactly what I needed.", "date": "4d ago" },
+      { "name": "Kai B.", "rating": 5, "text": "Support checked my setup before I ran it. Smooth experience overall.", "date": "1w ago" },
+      { "name": "Samir L.", "rating": 4, "text": "Had one question during install and got an answer in minutes. Solid product.", "date": "2w ago" }
+    ]
+  ] %}
+{% elif productName == 'valorant emulator' %}
+  {% set testimonialsRows = [
+    [
+      { "name": "Rayan D.", "rating": 5, "text": "Valorant Emulator launched cleanly and the performance stayed smooth.", "date": "1d ago" },
+      { "name": "Ilyes K.", "rating": 5, "text": "Setup was straightforward. Everything matched the product page.", "date": "3h ago" },
+      { "name": "Chris N.", "rating": 5, "text": "Fast delivery and no crashes during testing. Very happy with it.", "date": "5d ago" },
+      { "name": "Alex G.", "rating": 4, "text": "Good value and helpful support. Took a few minutes to configure correctly.", "date": "1w ago" }
+    ]
+  ] %}
+{% elif productName == 'valorant account' %}
+  {% set testimonialsRows = [
+    [
+      { "name": "Noah V.", "rating": 5, "text": "Valorant Account arrived right away with the details clearly provided.", "date": "Just now" },
+      { "name": "Yanis F.", "rating": 5, "text": "Account was as advertised. Checkout was quick and simple.", "date": "2d ago" },
+      { "name": "Leo A.", "rating": 5, "text": "Great price for the account. I received access without any delay.", "date": "6d ago" },
+      { "name": "Sofia M.", "rating": 4, "text": "Everything worked fine. Support was polite when I asked a quick question.", "date": "1w ago" }
+    ]
+  ] %}
+{% elif productName == 'valorant external' %}
+  {% set testimonialsRows = [
+    [
+      { "name": "Hugo P.", "rating": 5, "text": "Valorant External is lightweight and the setup took only a few minutes.", "date": "8h ago" },
+      { "name": "Max W.", "rating": 5, "text": "Stable, clean interface, and fast delivery. Exactly what I wanted.", "date": "2d ago" },
+      { "name": "Owen J.", "rating": 5, "text": "Performance stayed good while using it. The instructions were clear.", "date": "4d ago" },
+      { "name": "Amir C.", "rating": 4, "text": "Nice product overall. Support helped me adjust the configuration.", "date": "1w ago" }
+    ]
+  ] %}
+{% elif productName == 'valorant private' %}
+  {% set testimonialsRows = [
+    [
+      { "name": "Lucas E.", "rating": 5, "text": "Valorant Private feels premium. Delivery was fast and the setup was clean.", "date": "4h ago" },
+      { "name": "Matt H.", "rating": 5, "text": "Support was professional and the product worked perfectly after install.", "date": "2d ago" },
+      { "name": "Jules R.", "rating": 5, "text": "Very stable so far. Clear instructions and quick access after purchase.", "date": "5d ago" },
+      { "name": "Nate Q.", "rating": 4, "text": "Good private option with fast replies from the team. No issues after setup.", "date": "1w ago" }
+    ]
+  ] %}
+{% endif %}
 
 <div class="sa-pp component" data-component-id="{{ componentId }}">
   <div class="container sa-pp-container">
@@ -215,6 +252,7 @@
           </section>
         {% endif %}
 
+        {% if testimonialsRows|length > 0 %}
         <section class="sa-testimonials">
           <div class="sa-testimonials-head">
             <h2 class="sa-testimonials-title">What Our Users Say</h2>
@@ -252,6 +290,7 @@
             {% endfor %}
           </div>
         </section>
+        {% endif %}
       </div>
     </section>
   </div>

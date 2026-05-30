@@ -111,8 +111,8 @@
                     <tr class="small">
                       <td class="text-capitalize">{{ customer.email }}</td>
                       <td class="text-capitalize">
-                        <span x-text="appCurrency.format({{ customer.affiliate_referrer_earnings }}, 'USD')">
-                          {{ formatPrice(customer.affiliate_referrer_earnings, 'USD') }}
+                        <span x-text="appCurrency.format({{ customer.affiliate_referrer_earnings }}, 'EUR')">
+                          {{ formatPrice(customer.affiliate_referrer_earnings, 'EUR') }}
                         </span>
                       </td>
                       <td>{{ customer.created_at | formatDateTime }}</td>

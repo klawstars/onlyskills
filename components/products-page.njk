@@ -412,7 +412,7 @@
             name: String(product?.name || 'Untitled Product'),
             description: String(product?.description || ''),
             basePrice: this.toNumber(product?.min_price, 0),
-            currency: String(product?.currency || 'USD'),
+            currency: String(product?.currency || 'EUR'),
             image: this.imageUrl(product),
             status: this.stockStatus(product),
             serviceStatus: this.serviceStatus(product),
@@ -422,7 +422,7 @@
 
         priceText(product) {
           const amount = this.toNumber(product?.basePrice, 0);
-          const currency = String(product?.currency || 'USD');
+          const currency = String(product?.currency || 'EUR');
 
           if (window.alpineApp && window.alpineApp.appCurrency && typeof window.alpineApp.appCurrency.format === 'function') {
             try {
@@ -438,7 +438,7 @@
               maximumFractionDigits: 2,
             }).format(amount);
           } catch (_) {
-            return `$${amount.toFixed(2)}`;
+            return `€${amount.toFixed(2)}`;
           }
         },
 
