@@ -3,7 +3,7 @@ git commit -m "update website"
 git push origin main
 
 
-ssh root@87.106.171.154
+ssh root@82.165.182.243
 cd /var/www/hollowxyz
 git pull origin main
 npm ci
