@@ -3091,9 +3091,9 @@ footer.footer {
 
   .ux-payment-img-mobile {
     display: block !important;
-    width: 200% !important;
-    max-width: none !important;
-    margin-left: -50%;
+    width: 100% !important;
+    max-width: 520px !important;
+    margin: 0 auto !important;
   }
 
   [data-aos] {

@@ -1,5 +1,48 @@
 const decodeHtmlEntities = s => s.replace(/&#(\d+);/g,(_,d)=>String.fromCharCode(d)).replace(/&quot;|&apos;|&amp;|&lt;|&gt;/g, m=>({ "&quot;":"\"","&apos;":"'","&amp;":"&","&lt;":"<","&gt;":">" }[m]));
 
+function initHeroVideoAutoplay() {
+  const videos = document.querySelectorAll('.ux-hero-video');
+
+  if (!videos.length) {
+    return;
+  }
+
+  const tryPlay = (video) => {
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(() => {});
+    }
+  };
+
+  videos.forEach((video) => {
+    if (video.readyState >= 2) {
+      tryPlay(video);
+    } else {
+      video.addEventListener('loadeddata', () => tryPlay(video), { once: true });
+      video.load();
+    }
+
+    setTimeout(() => tryPlay(video), 250);
+    setTimeout(() => tryPlay(video), 1200);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initHeroVideoAutoplay);
+window.addEventListener('load', initHeroVideoAutoplay);
+window.addEventListener('pageshow', initHeroVideoAutoplay);
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) {
+    initHeroVideoAutoplay();
+  }
+});
+
 document.addEventListener('alpine:init', () => {
   Alpine.data('app', () => ({
     appCurrency: {

@@ -6,7 +6,7 @@
                 "hero": {
                     "type": "hero",
                     "properties": {
-                        "title": "The Marketplace built to be better.",
+                        "title": "OnlySkills products made better",
                         "subtitle": null,
                         "cta": "/#products",
                         "cta_text": "Explore Products",
@@ -290,8 +290,8 @@
             "secondary_background_color": "#0a0d18",
             "primary_border_color": "#4A90D926",
             "font": "Geist",
-            "navbar_logo_url": "https://onlyskills.xyz/",
-            "navbar_support_url": "https://onlyskills.mysellauth.com/customer/tickets",
+            "navbar_logo_url": "https://onlyskills.fr/",
+            "navbar_support_url": "https://discord.gg/onlyskills",
             "navbar_customer_panel_url": "https://onlyskills.mysellauth.com/customer/dashboard",
             "snow": false,
             "snow_color": "#ffffff",
