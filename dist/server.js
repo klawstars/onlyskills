@@ -1494,6 +1494,116 @@ function mapSellAuthCustomerToThemeCustomer(customer) {
   };
 }
 
+async function getCartCatalog() {
+  const sample = createSampleData();
+  const live = await fetchSellAuthLiveData().catch(() => null);
+  const source = live || sample;
+  const products = ensureArray(source.products).length > 0
+    ? ensureArray(source.products)
+    : ensureArray(source.sortedItems).filter((item) => item?.type === "product");
+
+  return products;
+}
+
+function buildCartResponse(rawCart, products) {
+  const productById = new Map(products.map((product) => [String(product.id), product]));
+  const addonItemsByParentVariantId = new Map();
+  const parentItems = [];
+  const messages = [];
+
+  for (const item of ensureArray(rawCart)) {
+    const normalized = {
+      productId: item?.productId,
+      variantId: item?.variantId,
+      quantity: Math.max(1, Math.floor(toNumber(item?.quantity, 1))),
+      parentVariantId: item?.parentVariantId ?? null,
+    };
+
+    if (normalized.parentVariantId) {
+      const key = String(normalized.parentVariantId);
+      addonItemsByParentVariantId.set(key, [...(addonItemsByParentVariantId.get(key) || []), normalized]);
+    } else {
+      parentItems.push(normalized);
+    }
+  }
+
+  const resolveCartItem = (item) => {
+    const product = productById.get(String(item.productId));
+    if (!product) {
+      messages.push("A product in your cart is no longer available and was removed.");
+      return null;
+    }
+
+    const variant = ensureArray(product.variants).find((entry) => String(entry.id) === String(item.variantId));
+    if (!variant) {
+      messages.push(`${product.name} is no longer available in the selected option and was removed.`);
+      return null;
+    }
+
+    const min = Math.max(1, Math.floor(toNumber(variant.quantity_min ?? product.quantity_min, 1)));
+    const rawMax = toNumber(variant.quantity_max ?? product.quantity_max, 999999);
+    const stockMax = product.hide_stock_count || variant.stock === -1
+      ? rawMax
+      : Math.min(rawMax, Math.max(0, toNumber(variant.stock, rawMax)));
+    const max = Math.max(min, stockMax);
+    const quantity = Math.min(Math.max(min, item.quantity), max);
+
+    return {
+      productId: product.id,
+      variantId: variant.id,
+      quantity,
+      parentVariantId: item.parentVariantId,
+      product,
+      variant,
+    };
+  };
+
+  const fullCart = [];
+  const cart = [];
+
+  for (const item of parentItems) {
+    const fullItem = resolveCartItem(item);
+    if (!fullItem) {
+      continue;
+    }
+
+    const addonItems = addonItemsByParentVariantId.get(String(fullItem.variant.id)) || [];
+    const addons = addonItems
+      .map(resolveCartItem)
+      .filter(Boolean)
+      .map((addon) => ({
+        product: addon.product,
+        variant: addon.variant,
+        quantity: addon.quantity,
+      }));
+
+    fullCart.push({
+      product: fullItem.product,
+      variant: fullItem.variant,
+      quantity: fullItem.quantity,
+      addons,
+    });
+
+    cart.push({
+      productId: fullItem.product.id,
+      variantId: fullItem.variant.id,
+      quantity: fullItem.quantity,
+      parentVariantId: null,
+    });
+
+    for (const addon of addons) {
+      cart.push({
+        productId: addon.product.id,
+        variantId: addon.variant.id,
+        quantity: addon.quantity,
+        parentVariantId: fullItem.variant.id,
+      });
+    }
+  }
+
+  return { cart, fullCart, messages };
+}
+
 async function createContext(req, templateName, routeData) {
   const settings = currentSettings;
   const templateConfig = settings.templates?.[templateName] || {};
@@ -1779,6 +1889,25 @@ app.get("/requirements.json", (req, res) => {
   res.setHeader("Pragma", "no-cache");
   res.setHeader("Expires", "0");
   res.type("application/json").send(fs.readFileSync(filePath, "utf8"));
+});
+
+app.get("/api/v1/cart", async (req, res) => {
+  try {
+    const rawCart = JSON.parse(String(req.query.cart || "[]"));
+    const catalog = await getCartCatalog();
+    const { cart, fullCart, messages } = buildCartResponse(rawCart, catalog);
+
+    res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
+    res.setHeader("Pragma", "no-cache");
+    res.setHeader("Expires", "0");
+    res.json({ cart, fullCart, messages });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error || "Unknown error");
+    res.status(400).json({
+      error: "invalid_cart_payload",
+      message: `Unable to read cart payload: ${message}`,
+    });
+  }
 });
 
 app.use(

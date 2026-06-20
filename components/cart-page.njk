@@ -211,7 +211,7 @@
         this.fullCartMessages = [];
         this.fullCartShowMessages = false;
 
-        const url = new URL('{{ '/v1/cart' | apiInternalUrl }}');
+        const url = new URL('{{ '/v1/cart' | apiInternalUrl }}', window.location.origin);
         url.searchParams.append('shopId', '{{ shop.id }}');
         url.searchParams.append('cart', JSON.stringify(this.appCart.items));
 

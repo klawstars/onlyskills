@@ -5537,7 +5537,7 @@ button.sa-unified-menu-btn {
 .sa-unified-mobile {
   position: fixed !important;
   inset: 0 !important;
-  z-index: 1040 !important;
+  z-index: 3000 !important;
   background: rgba(0, 0, 0, 0.6) !important;
   backdrop-filter: blur(8px) !important;
   -webkit-backdrop-filter: blur(8px) !important;
@@ -5545,6 +5545,7 @@ button.sa-unified-menu-btn {
   align-items: flex-end !important;
   justify-content: center !important;
   padding: 16px 16px 88px !important;
+  pointer-events: auto !important;
 }
 
 @media (min-width: 768px) {

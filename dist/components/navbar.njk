@@ -80,55 +80,53 @@
     </div>
   </div>
 
-  {# x-teleport: évite que backdrop-filter sur #ux-header transforme le fixed en overlay partiel (bug mobile) #}
-  <template x-teleport="body">
-    <div
-      class="sa-unified-mobile"
-      x-show.important="mobileOpen"
-      x-transition.opacity.duration.200ms
-      @click.self="mobileOpen = false"
-      x-cloak
-    >
-      <div class="sa-unified-mobile-list">
-        <a href="{{ '/' | shopUrl }}" class="sa-unified-mobile-link {{ 'active' if isLandingPage }}" @click="mobileOpen = false">
-          <i class="fa-solid fa-house"></i>
-          <span>Home</span>
-        </a>
-        <a href="{{ '/products' | shopUrl }}" class="sa-unified-mobile-link {{ 'active' if isProductsPage }}" @click="mobileOpen = false">
-          <i class="fa-solid fa-box"></i>
-          <span>Products</span>
-        </a>
-        <a href="{{ '/status' | shopUrl }}" class="sa-unified-mobile-link {{ 'active' if isStatusPage }}" @click="mobileOpen = false">
-          <i class="fa-solid fa-wave-square"></i>
-          <span>Status</span>
-        </a>
-        <a href="{{ supportHref }}" class="sa-unified-mobile-link" @click="mobileOpen = false">
-          <i class="fa-solid fa-circle-question"></i>
-          <span>Support</span>
-        </a>
+  <div
+    class="sa-unified-mobile"
+    x-show.important="mobileOpen"
+    x-transition.opacity.duration.200ms
+    @click.self="mobileOpen = false"
+    @keydown.escape.window="mobileOpen = false"
+    x-cloak
+  >
+    <div class="sa-unified-mobile-list">
+      <a href="{{ '/' | shopUrl }}" class="sa-unified-mobile-link {{ 'active' if isLandingPage }}" @click="mobileOpen = false">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </a>
+      <a href="{{ '/products' | shopUrl }}" class="sa-unified-mobile-link {{ 'active' if isProductsPage }}" @click="mobileOpen = false">
+        <i class="fa-solid fa-box"></i>
+        <span>Products</span>
+      </a>
+      <a href="{{ '/status' | shopUrl }}" class="sa-unified-mobile-link {{ 'active' if isStatusPage }}" @click="mobileOpen = false">
+        <i class="fa-solid fa-wave-square"></i>
+        <span>Status</span>
+      </a>
+      <a href="{{ supportHref }}" class="sa-unified-mobile-link" @click="mobileOpen = false">
+        <i class="fa-solid fa-circle-question"></i>
+        <span>Support</span>
+      </a>
 
-        {% if not global.components.navbar.hide_customer_dashboard %}
-        <div class="sa-unified-mobile-sep"></div>
-          {% if configuredCustomerPanelUrl %}
+      {% if not global.components.navbar.hide_customer_dashboard %}
+      <div class="sa-unified-mobile-sep"></div>
+        {% if configuredCustomerPanelUrl %}
+          <a href="{{ customerPanelHref }}" class="sa-unified-mobile-link sa-unified-mobile-panel" @click="mobileOpen = false">
+            <i class="fa-solid fa-arrow-right"></i>
+            <span>Customer Panel</span>
+          </a>
+        {% else %}
+          {% if shop_customer %}
             <a href="{{ customerPanelHref }}" class="sa-unified-mobile-link sa-unified-mobile-panel" @click="mobileOpen = false">
               <i class="fa-solid fa-arrow-right"></i>
               <span>Customer Panel</span>
             </a>
           {% else %}
-            {% if shop_customer %}
-              <a href="{{ customerPanelHref }}" class="sa-unified-mobile-link sa-unified-mobile-panel" @click="mobileOpen = false">
-                <i class="fa-solid fa-arrow-right"></i>
-                <span>Customer Panel</span>
-              </a>
-            {% else %}
-              <button type="button" data-bs-toggle="modal" data-bs-target="#customer-login-modal" class="sa-unified-mobile-link sa-unified-mobile-panel" @click="mobileOpen = false">
-                <i class="fa-solid fa-arrow-right"></i>
-                <span>Customer Panel</span>
-              </button>
-            {% endif %}
+            <button type="button" data-bs-toggle="modal" data-bs-target="#customer-login-modal" class="sa-unified-mobile-link sa-unified-mobile-panel" @click="mobileOpen = false">
+              <i class="fa-solid fa-arrow-right"></i>
+              <span>Customer Panel</span>
+            </button>
           {% endif %}
         {% endif %}
-      </div>
+      {% endif %}
     </div>
-  </template>
+  </div>
 </nav>
