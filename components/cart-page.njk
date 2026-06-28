@@ -32,57 +32,59 @@
                 <template x-if="fullCart.length > 0">
                   <div class="d-flex flex-column gap-3">
                     <template x-for="(cartItem, index) in fullCart" :key="index">
-                      <div class="d-flex flex-column p-1 flex-sm-row justify-content-sm-between p-sm-0 border rounded-3 cart-item-bg text-white">
-                        <div class="flex-grow-1 d-flex gap-2 text-truncate">
-                          <div class="d-flex justify-content-center align-items-center w-100 position-relative p-1 py-1 p-sm-3 py-sm-3 aspect-product-card-image">
-                            <template x-if="cartItem.product.image_url">
-                              <img :src="cartItem.product.image_url" class="w-100 rounded-2 aspect-product-card-image object-product-image" loading="lazy" />
-                            </template>
-                            <template x-if="!cartItem.product.image_url">
-                              <div class="d-flex justify-content-center align-items-center text-muted aspect-product-card-image">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="cart-placeholder-svg" viewBox="0 0 256 256">
-                                  <path
-                                    fill="currentColor"
-                                    d="m222.72 67.91l-88-48.18a13.9 13.9 0 0 0-13.44 0l-88 48.18A14 14 0 0 0 26 80.18v95.64a14 14 0 0 0 7.28 12.27l88 48.18a13.92 13.92 0 0 0 13.44 0l88-48.18a14 14 0 0 0 7.28-12.27V80.18a14 14 0 0 0-7.28-12.27ZM127 30.25a2 2 0 0 1 1.92 0L212.51 76l-33.94 18.57l-84.52-46.26ZM122 223l-83-45.43a2 2 0 0 1-1-1.75V86.66l84 46ZM43.49 76l38.07-20.85l84.51 46.26L128 122.24ZM218 175.82a2 2 0 0 1-1 1.75L134 223v-90.36l36-19.71V152a6 6 0 0 0 12 0v-45.63l36-19.71Z"
-                                  />
-                                </svg>
-                              </div>
-                            </template>
-                          </div>
+                      <div class="cart-item-card">
+                        <div class="cart-item-image">
+                          <template x-if="cartItem.product.image_url">
+                            <img :src="cartItem.product.image_url" class="w-100 h-100 object-product-image" loading="lazy" />
+                          </template>
+                          <template x-if="!cartItem.product.image_url">
+                            <div class="d-flex justify-content-center align-items-center h-100 text-muted">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="cart-placeholder-svg" viewBox="0 0 256 256">
+                                <path
+                                  fill="currentColor"
+                                  d="m222.72 67.91l-88-48.18a13.9 13.9 0 0 0-13.44 0l-88 48.18A14 14 0 0 0 26 80.18v95.64a14 14 0 0 0 7.28 12.27l88 48.18a13.92 13.92 0 0 0 13.44 0l88-48.18a14 14 0 0 0 7.28-12.27V80.18a14 14 0 0 0-7.28-12.27ZM127 30.25a2 2 0 0 1 1.92 0L212.51 76l-33.94 18.57l-84.52-46.26ZM122 223l-83-45.43a2 2 0 0 1-1-1.75V86.66l84 46ZM43.49 76l38.07-20.85l84.51 46.26L128 122.24ZM218 175.82a2 2 0 0 1-1 1.75L134 223v-90.36l36-19.71V152a6 6 0 0 0 12 0v-45.63l36-19.71Z"
+                                />
+                              </svg>
+                            </div>
+                          </template>
+                        </div>
 
-                          <div class="flex-grow-1 text-start pe-2 py-1 pe-sm-3 py-sm-3 text-truncate">
-                            <div class="d-flex justify-content-between align-items-center gap-2 text-truncate">
-                              <a :href="'/product/' + cartItem.product.path" class="text-white fw-bold text-truncate text-decoration-none cart-product-link">
+                        <div class="cart-item-content">
+                          <div class="cart-item-header">
+                            <div class="cart-item-title-wrapper">
+                              <a :href="'/product/' + cartItem.product.path" class="cart-item-title">
                                 <span x-text="cartItem.product.name"></span>
                               </a>
-                              <button
-                                type="button"
-                                @click="removeItem(index)"
-                                class="btn p-0 text-white d-sm-none cart-remove-mobile"
-                              >
-                                <svg xmlns="http://www.w3.org/2000/svg" class="cart-remove-icon-sm" viewBox="0 0 24 24"><path fill="currentColor" d="m12 13.4l-4.9 4.9q-.275.275-.7.275t-.7-.275t-.275-.7t.275-.7l4.9-4.9l-4.9-4.9q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l4.9 4.9l4.9-4.9q.275-.275.7-.275t.7.275t.275.7t-.275.7L13.4 12l4.9 4.9q.275.275.275.7t-.275.7t-.7.275t-.7-.275z"/></svg>
-                              </button>
+                              <p class="cart-item-variant" x-text="cartItem.variant.name"></p>
                             </div>
-                            <p class="small text-truncate mb-0 cart-variant-text" x-text="cartItem.variant.name"></p>
-                            <template x-if="getAvailableVolumeDiscount(index)">
-                              <div class="small text-truncate cart-discount-text mt-1">
-                                Buy <span x-text="getAvailableVolumeDiscount(index)?.quantity - cartItem.quantity"></span> more to get a <span x-text="getAvailableVolumeDiscount(index)?.percentage"></span>% discount.
-                              </div>
-                            </template>
-                            <template x-if="cartItem.addons && cartItem.addons.length > 0">
-                              <div class="d-flex align-items-center gap-1 mt-1">
-                                <template x-for="(addon, addonIndex) in cartItem.addons" :key="addonIndex">
-                                  <div class="cart-addon-badge">
-                                    <span x-text="addon.product.name"></span>
-                                  </div>
-                                </template>
-                              </div>
-                            </template>
+                            <button
+                              type="button"
+                              @click="removeItem(index)"
+                              class="btn p-0 cart-remove-btn d-sm-none"
+                            >
+                              <svg xmlns="http://www.w3.org/2000/svg" class="cart-remove-icon-sm" viewBox="0 0 24 24"><path fill="currentColor" d="m12 13.4l-4.9 4.9q-.275.275-.7.275t-.7-.275t-.275-.7t.275-.7l4.9-4.9l-4.9-4.9q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l4.9 4.9l4.9-4.9q.275-.275.7-.275t.7.275t.275.7t-.275.7L13.4 12l4.9 4.9q.275.275.275.7t-.275.7t-.7.275t-.7-.275z"/></svg>
+                            </button>
                           </div>
+
+                          <template x-if="getAvailableVolumeDiscount(index)">
+                            <div class="cart-item-discount">
+                              Buy <span x-text="getAvailableVolumeDiscount(index)?.quantity - cartItem.quantity"></span> more to get a <span x-text="getAvailableVolumeDiscount(index)?.percentage"></span>% discount.
+                            </div>
+                          </template>
+
+                          <template x-if="cartItem.addons && cartItem.addons.length > 0">
+                            <div class="d-flex align-items-center gap-2 mt-2">
+                              <template x-for="(addon, addonIndex) in cartItem.addons" :key="addonIndex">
+                                <div class="cart-addon-badge">
+                                  <span x-text="addon.product.name"></span>
+                                </div>
+                              </template>
+                            </div>
+                          </template>
                         </div>
-                        
-                        <div class="d-flex align-items-center justify-content-between ps-1 pe-4 pt-2 pb-1 mt-2 justify-content-sm-end ps-sm-0 py-sm-0 mt-sm-0 gap-md-4 gap-lg-5 pe-lg-5 cart-controls">
-                          <div class="d-flex gap-1 rounded-2 overflow-hidden cart-quantity-controls">
+
+                        <div class="cart-item-controls">
+                          <div class="cart-quantity-controls">
                             <button
                               type="button"
                               @click="changeQuantity(index, cartItem.quantity - 1)"
@@ -105,15 +107,13 @@
                               <svg xmlns="http://www.w3.org/2000/svg" class="cart-qty-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M11 13H6q-.425 0-.712-.288T5 12t.288-.712T6 11h5V6q0-.425.288-.712T12 5t.713.288T13 6v5h5q.425 0 .713.288T19 12t-.288.713T18 13h-5v5q0 .425-.288.713T12 19t-.712-.288T11 18z"/></svg>
                             </button>
                           </div>
-                          <div>
-                            <p class="fw-medium text-center mb-0 cart-price-text">
-                              <span x-text="appCurrency.format(getItemSinglePrice(index), cartItem.product.currency)"></span>
-                            </p>
+                          <div class="cart-item-price">
+                            <span x-text="appCurrency.format(getItemSinglePrice(index), cartItem.product.currency)"></span>
                           </div>
                           <button
                             type="button"
                             @click="removeItem(index)"
-                            class="btn p-0 text-white d-none d-sm-block cart-remove-desktop"
+                            class="btn p-0 d-none d-sm-block cart-remove-btn"
                           >
                             <svg xmlns="http://www.w3.org/2000/svg" class="cart-remove-icon" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>
                           </button>
