@@ -74,6 +74,12 @@ body::after {
   margin-top: 0;
 }
 
+.ux-hero.ux-hero-video-bg + section,
+.ux-hero.ux-hero-video-bg + .component {
+  position: relative;
+  z-index: 1;
+}
+
 header.sticky-top {
   position: static !important;
 }
@@ -722,9 +728,16 @@ button.sa-unified-mobile-link {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 40%;
-  background-image: linear-gradient(to bottom, transparent, #120707 85%);
-  z-index: 6;
+  height: 45%;
+  z-index: 8;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(16, 7, 7, 0.25) 35%,
+    rgba(16, 7, 7, 0.72) 68%,
+    var(--ux-bg-primary) 100%
+  );
 }
 
 .ux-trust-badge {
@@ -893,7 +906,19 @@ button.sa-unified-mobile-link {
   pointer-events: none;
   background:
     radial-gradient(ellipse 80% 65% at 50% 45%, transparent 50%, rgba(10, 8, 14, 0.14) 100%),
-    linear-gradient(0deg, rgba(10, 8, 14, 0.28) 0%, transparent 50%);
+    linear-gradient(0deg, rgba(16, 7, 7, 0.08) 0%, transparent 48%);
+}
+
+.ux-hero.ux-hero-video-bg .ux-hero-fade-bottom {
+  height: 42%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(16, 7, 7, 0.08) 32%,
+    rgba(16, 7, 7, 0.32) 58%,
+    rgba(16, 7, 7, 0.62) 82%,
+    var(--ux-bg-primary) 100%
+  );
 }
 
 .ux-hero.ux-hero-video-bg .ux-hero-glow {
