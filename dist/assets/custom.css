@@ -103,8 +103,8 @@ header.sticky-top {
   height: auto !important;
   padding: 0 !important;
   margin: 0 !important;
-  position: static !important;
-  pointer-events: auto;
+  position: relative !important;
+  pointer-events: auto !important;
 }
 
 /* Old shell styles overridden by bottom floating pill styles below */
@@ -113,12 +113,12 @@ header.sticky-top {
   align-items: center !important;
   gap: 0 !important;
   padding: 8px 8px 8px 22px !important;
-  background: rgba(8, 8, 12, 0.88) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  background: rgba(8, 8, 12, 0.12) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
   border-radius: 9999px !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55) !important;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08) !important;
   height: auto !important;
   width: auto !important;
   flex-wrap: nowrap !important;
@@ -126,8 +126,8 @@ header.sticky-top {
 }
 
 #ux-header.is-scrolled .sa-unified-shell {
-  background: rgba(8, 8, 12, 0.88) !important;
-  border-color: rgba(255, 255, 255, 0.07) !important;
+  background: rgba(8, 8, 12, 0.22) !important;
+  border-color: rgba(255, 255, 255, 0.11) !important;
 }
 
 .sa-unified-logo {
@@ -201,11 +201,8 @@ header.sticky-top {
   z-index: 4;
 }
 
-.sa-unified-icon-btn {
-  display: none !important;
-}
-
-.sa-unified-icon-btn:hover {
+a.sa-unified-icon-btn,
+button.sa-unified-icon-btn:not(.sa-unified-menu-btn) {
   display: none !important;
 }
 
@@ -218,10 +215,10 @@ header.sticky-top {
   align-items: center !important;
   gap: 8px !important;
   height: auto;
-  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
   border-radius: 9999px !important;
   padding: 10px 20px !important;
-  background: rgba(255, 255, 255, 0.06) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
   color: #fff !important;
   text-decoration: none !important;
   font-size: 0.84rem !important;
@@ -250,24 +247,28 @@ header.sticky-top {
 
 .sa-unified-panel-btn:hover {
   filter: none;
-  background: rgba(255, 255, 255, 0.11) !important;
+  background: rgba(255, 255, 255, 0.07) !important;
   color: #fff !important;
 }
 
 .sa-unified-mobile {
   position: fixed !important;
   inset: 0 !important;
-  z-index: 1040 !important;
+  z-index: 3000 !important;
   background: rgba(0, 0, 0, 0.6) !important;
   backdrop-filter: blur(8px) !important;
   -webkit-backdrop-filter: blur(8px) !important;
-  display: flex !important;
+  display: flex;
   align-items: flex-end !important;
   justify-content: center !important;
   padding: 16px 16px 88px !important;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  animation: none;
+  pointer-events: auto !important;
+}
+
+.sa-unified-mobile[x-cloak] {
+  display: none !important;
 }
 
 @keyframes mobileSlideIn {
@@ -842,6 +843,480 @@ button.sa-unified-mobile-link {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   padding: 1rem 2rem;
+}
+
+/* Full-video hero — background video + centered content */
+.ux-hero.ux-hero-video-bg {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: calc(100dvh + 80px) !important;
+  height: calc(100dvh + 80px) !important;
+  padding: 0 !important;
+  margin-top: -80px !important;
+  overflow: hidden !important;
+  text-align: center !important;
+  background: var(--ux-bg-primary) !important;
+}
+
+.ux-hero.ux-hero-video-bg::before {
+  background:
+    radial-gradient(ellipse 55% 40% at 50% 38%, rgba(217, 74, 74, 0.05) 0%, transparent 72%),
+    linear-gradient(180deg, rgba(10, 8, 12, 0.06) 0%, rgba(10, 8, 12, 0.22) 100%);
+  opacity: 1;
+  z-index: 3;
+}
+
+.ux-hero.ux-hero-video-bg .ux-hero-characters {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ux-hero.ux-hero-video-bg .ux-hero-characters .ux-hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  filter: brightness(0.88) saturate(1.05) contrast(1.02);
+  transform: scale(1.04);
+}
+
+.ux-hero.ux-hero-video-bg .ux-hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 65% at 50% 45%, transparent 50%, rgba(10, 8, 14, 0.14) 100%),
+    linear-gradient(0deg, rgba(10, 8, 14, 0.28) 0%, transparent 50%);
+}
+
+.ux-hero.ux-hero-video-bg .ux-hero-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background: transparent;
+}
+
+.ux-hero-center {
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+  margin: 0 auto;
+  zoom: 1.07;
+}
+
+.ux-hero-center-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.35rem;
+  padding: 0 1rem;
+}
+
+.ux-hero-center-title {
+  align-items: center;
+  text-align: center;
+}
+
+.ux-hero-center-subtitle {
+  text-align: center;
+  margin: -0.25rem auto 0;
+}
+
+.ux-hero-center-actions {
+  justify-content: center;
+}
+
+.ux-hero-center-stats {
+  justify-content: center;
+  max-width: 560px;
+}
+
+.ux-hero.ux-hero-video-bg .ux-hero-split-badge {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.95);
+  box-shadow: none;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.ux-hero.ux-hero-video-bg .ux-hero-split-badge svg {
+  color: #ff8a8a;
+}
+
+.ux-hero.ux-hero-video-bg .ux-hero-split-brand {
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+}
+
+.ux-hero.ux-hero-video-bg .ux-hero-split-tagline {
+  background: linear-gradient(135deg, #ffffff 0%, #ffd4d4 45%, #D94A4A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: none;
+}
+
+.ux-hero.ux-hero-video-bg .ux-hero-split-subtitle {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.ux-hero.ux-hero-video-bg .ux-hero-split-btn-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.ux-hero.ux-hero-video-bg .ux-hero-split-btn-secondary:hover {
+  border-color: rgba(217, 74, 74, 0.4);
+  background: rgba(217, 74, 74, 0.12);
+  box-shadow: 0 0 16px rgba(217, 74, 74, 0.15);
+}
+
+.ux-hero.ux-hero-video-bg .ux-hero-split-stat {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.ux-hero.ux-hero-video-bg .ux-hero-split-stat-value {
+  color: #fff;
+}
+
+.ux-hero.ux-hero-video-bg .ux-hero-split-stat-value svg {
+  color: #ff8a8a;
+}
+
+.ux-hero.ux-hero-video-bg .ux-hero-btn-primary {
+  box-shadow: 0 8px 32px rgba(217, 74, 74, 0.38);
+}
+
+.ux-hero.ux-hero-video-bg .ux-hero-btn-primary:hover {
+  box-shadow: 0 10px 40px rgba(217, 74, 74, 0.48);
+  filter: brightness(1.06);
+}
+
+.ux-hero.ux-hero-video-bg .ux-scroll-arrow {
+  bottom: 2.5rem;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(217, 74, 74, 0.45);
+}
+
+/* Split hero — video left, content right */
+.ux-hero.ux-hero-split {
+  display: block !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  min-height: auto !important;
+  height: auto !important;
+  padding: calc(5.5rem + 80px) 0 4.5rem !important;
+  margin-top: -80px !important;
+  background: var(--ux-bg-primary) !important;
+  text-align: left !important;
+}
+
+.ux-hero.ux-hero-split::before {
+  background:
+    radial-gradient(ellipse 80% 65% at 8% 50%, rgba(217, 74, 74, 0.32) 0%, transparent 62%),
+    radial-gradient(ellipse 55% 45% at 92% 22%, rgba(217, 74, 74, 0.18) 0%, transparent 58%),
+    radial-gradient(ellipse 40% 30% at 55% 80%, rgba(107, 27, 27, 0.2) 0%, transparent 55%);
+  opacity: 1;
+}
+
+.ux-hero-split-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ux-hero-split-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.ux-hero-split-glow-left {
+  width: 520px;
+  height: 520px;
+  left: -12%;
+  top: 10%;
+  background: rgba(217, 74, 74, 0.34);
+}
+
+.ux-hero-split-glow-right {
+  width: 380px;
+  height: 380px;
+  right: 0;
+  top: 0;
+  background: rgba(217, 74, 74, 0.22);
+}
+
+.ux-hero-split-inner {
+  position: relative;
+  z-index: 10;
+  max-width: 1240px;
+  zoom: 1.07;
+}
+
+.ux-hero-split-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+}
+
+.ux-hero-media {
+  position: relative;
+}
+
+.ux-hero-media-shell {
+  position: relative;
+}
+
+.ux-hero-media-shell::before {
+  content: '';
+  position: absolute;
+  inset: -18px -12px -28px;
+  background: radial-gradient(ellipse at 50% 60%, rgba(217, 74, 74, 0.42) 0%, transparent 68%);
+  filter: blur(18px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.ux-hero-media-frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(217, 74, 74, 0.35);
+  background: rgba(12, 6, 6, 0.85);
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.55),
+    0 0 48px rgba(217, 74, 74, 0.22),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+  aspect-ratio: 16 / 10;
+}
+
+.ux-hero-media-frame .ux-hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  filter: saturate(1.18) contrast(1.06) brightness(1.06);
+  transform: none;
+}
+
+.ux-hero-media-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 58%, rgba(8, 4, 4, 0.78) 100%);
+  pointer-events: none;
+}
+
+.ux-hero-media-caption {
+  position: absolute;
+  left: 1.25rem;
+  right: 1.25rem;
+  bottom: 1.1rem;
+  z-index: 2;
+}
+
+.ux-hero-media-caption-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.ux-hero-media-caption-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.ux-hero-media-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ux-accent);
+  box-shadow: 0 0 10px rgba(217, 74, 74, 0.65);
+  flex-shrink: 0;
+}
+
+.ux-hero-media-accent {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: -7px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, #D94A4A, #ff7070, #D94A4A, transparent);
+  opacity: 1;
+  box-shadow: 0 0 18px rgba(217, 74, 74, 0.75);
+}
+
+.ux-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.35rem;
+}
+
+.ux-hero-split-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.95rem;
+  border-radius: 999px;
+  background: rgba(217, 74, 74, 0.16);
+  border: 1px solid rgba(217, 74, 74, 0.42);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.01em;
+  box-shadow: 0 0 24px rgba(217, 74, 74, 0.18);
+}
+
+.ux-hero-split-badge svg {
+  width: 13px;
+  height: 13px;
+  color: var(--ux-accent);
+  flex-shrink: 0;
+}
+
+.ux-hero-split-title {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-family: 'Zalando Sans Expanded', sans-serif;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.ux-hero-split-brand {
+  font-size: clamp(2.4rem, 5vw, 3.75rem);
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 50px rgba(217, 74, 74, 0.35);
+}
+
+.ux-hero-split-tagline {
+  font-size: clamp(1.65rem, 3.6vw, 2.65rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff 0%, #ff8a8a 30%, #D94A4A 65%, #ff5555 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 28px rgba(217, 74, 74, 0.35));
+}
+
+.ux-hero-split-subtitle {
+  margin: -0.35rem 0 0;
+  max-width: 520px;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.ux-hero-split-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.15rem;
+}
+
+.ux-hero-split-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.35rem;
+  border-radius: 999px;
+  border: 1px solid rgba(217, 74, 74, 0.28);
+  background: rgba(217, 74, 74, 0.1);
+  color: #fff !important;
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ux-hero-split-btn-secondary:hover {
+  border-color: rgba(217, 74, 74, 0.55);
+  background: rgba(217, 74, 74, 0.18);
+  box-shadow: 0 0 20px rgba(217, 74, 74, 0.25);
+  color: #fff !important;
+}
+
+.ux-hero.ux-hero-split .ux-hero-btn-primary {
+  box-shadow: 0 6px 28px rgba(217, 74, 74, 0.45);
+}
+
+.ux-hero.ux-hero-split .ux-hero-btn-primary:hover {
+  box-shadow: 0 8px 36px rgba(217, 74, 74, 0.55);
+  filter: brightness(1.08);
+}
+
+.ux-hero-split-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  width: 100%;
+  margin-top: 0.35rem;
+}
+
+.ux-hero-split-stat {
+  flex: 1 1 120px;
+  min-width: 110px;
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  background: rgba(217, 74, 74, 0.07);
+  border: 1px solid rgba(217, 74, 74, 0.22);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.ux-hero-split-stat-label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.ux-hero-split-stat-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.ux-hero-split-stat-value svg {
+  color: var(--ux-accent);
+}
+
+.ux-hero.ux-hero-split .ux-scroll-arrow {
+  bottom: 1.75rem;
 }
 
 .ux-stat {
@@ -2724,6 +3199,89 @@ footer.footer {
   .ux-hero {
     min-height: 450px !important;
     padding: 2rem 1rem !important;
+  }
+
+  .ux-hero.ux-hero-video-bg {
+    min-height: calc(100dvh + 80px) !important;
+    height: calc(100dvh + 80px) !important;
+    padding: 0 !important;
+  }
+
+  .ux-hero-center {
+    zoom: 1;
+  }
+
+  .ux-hero-center-stack {
+    gap: 1rem;
+    padding-top: 4rem;
+  }
+
+  .ux-hero-center-stats {
+    max-width: 100%;
+  }
+
+  .ux-hero-center-stats .ux-hero-split-stat {
+    flex: 1 1 calc(50% - 0.35rem);
+    min-width: 0;
+  }
+
+  .ux-hero-center-stats .ux-hero-split-stat:last-child {
+    flex: 1 1 100%;
+  }
+
+  .ux-hero.ux-hero-split {
+    padding: calc(5rem + 80px) 0 3.5rem !important;
+    min-height: auto !important;
+  }
+
+  .ux-hero-split-inner {
+    zoom: 1;
+  }
+
+  .ux-hero-split-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .ux-hero-split-grid .ux-hero-content {
+    order: 1;
+  }
+
+  .ux-hero-split-grid .ux-hero-media {
+    order: 2;
+  }
+
+  .ux-hero-split-brand {
+    font-size: clamp(2rem, 9vw, 2.6rem) !important;
+  }
+
+  .ux-hero-split-tagline {
+    font-size: clamp(1.35rem, 6vw, 1.85rem) !important;
+  }
+
+  .ux-hero-split-subtitle {
+    font-size: 0.88rem !important;
+  }
+
+  .ux-hero-split-actions {
+    width: 100%;
+  }
+
+  .ux-hero-split-actions .ux-hero-btn-primary,
+  .ux-hero-split-actions .ux-hero-split-btn-secondary {
+    flex: 1 1 100%;
+    justify-content: center;
+    font-size: 0.82rem !important;
+    padding: 0.6rem 1rem !important;
+  }
+
+  .ux-hero-split-stat {
+    flex: 1 1 calc(50% - 0.35rem);
+    min-width: 0;
+  }
+
+  .ux-hero-split-stat:last-child {
+    flex: 1 1 100%;
   }
 
   .ux-hero-badge-wrap {
@@ -5350,29 +5908,34 @@ footer.footer {
 }
 
 /* Final override: no circular container around top navbar icons */
-.ux-navbar.sa-unified-nav .sa-unified-icon-btn,
-.ux-navbar.sa-unified-nav .sa-unified-menu-btn {
+.ux-navbar.sa-unified-nav a.sa-unified-icon-btn {
   border: 0 !important;
   background: transparent !important;
   border-radius: 0 !important;
   box-shadow: none !important;
 }
 
-.ux-navbar.sa-unified-nav .sa-unified-icon-btn:hover,
-.ux-navbar.sa-unified-nav .sa-unified-menu-btn:hover {
-  border: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
+.sa-unified-nav-wrap {
+  position: fixed !important;
+  top: 16px !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 2100 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  pointer-events: none !important;
 }
 
 nav.sa-unified-nav.ux-navbar.component {
   all: unset !important;
-  position: fixed !important;
-  top: 16px !important;
+  position: relative !important;
+  top: auto !important;
   bottom: auto !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  z-index: 1050 !important;
+  left: auto !important;
+  transform: none !important;
+  z-index: 1 !important;
   width: auto !important;
   max-width: 95vw !important;
   display: block !important;
@@ -5390,12 +5953,12 @@ nav.sa-unified-nav.ux-navbar.component {
   align-items: center !important;
   gap: 0 !important;
   padding: 8px 8px 8px 22px !important;
-  background: rgba(8, 8, 12, 0.88) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  background: rgba(8, 8, 12, 0.12) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
   border-radius: 9999px !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55) !important;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08) !important;
   height: auto !important;
   width: auto !important;
   flex-wrap: nowrap !important;
@@ -5483,8 +6046,8 @@ button.sa-unified-icon-btn:not(.sa-unified-menu-btn) {
   align-items: center !important;
   gap: 8px !important;
   padding: 10px 20px !important;
-  background: rgba(255, 255, 255, 0.06) !important;
-  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
   border-radius: 9999px !important;
   color: #fff !important;
   font-size: 0.84rem !important;
@@ -5514,7 +6077,7 @@ button.sa-unified-icon-btn:not(.sa-unified-menu-btn) {
 }
 
 .sa-unified-panel-btn:hover {
-  background: rgba(255, 255, 255, 0.11) !important;
+  background: rgba(255, 255, 255, 0.07) !important;
   color: #fff !important;
 }
 
@@ -5525,33 +6088,17 @@ button.sa-unified-menu-btn {
   justify-content: center !important;
   width: 38px !important;
   height: 38px !important;
+  min-width: 38px !important;
+  min-height: 38px !important;
   border-radius: 50% !important;
-  color: rgba(255, 255, 255, 0.7) !important;
-  background: none !important;
-  border: none !important;
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
   cursor: pointer !important;
-  font-size: 0.9rem !important;
-}
-
-/* Mobile Overlay */
-.sa-unified-mobile {
-  position: fixed !important;
-  inset: 0 !important;
-  z-index: 3000 !important;
-  background: rgba(0, 0, 0, 0.6) !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-  display: flex !important;
-  align-items: flex-end !important;
-  justify-content: center !important;
-  padding: 16px 16px 88px !important;
+  font-size: 0.95rem !important;
   pointer-events: auto !important;
-}
-
-@media (min-width: 768px) {
-  .sa-unified-mobile {
-    display: none !important;
-  }
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .sa-unified-mobile-list {
@@ -5604,9 +6151,8 @@ button.sa-unified-menu-btn {
 
 /* Responsive */
 @media (max-width: 767.98px) {
-  nav.sa-unified-nav.ux-navbar.component {
+  .sa-unified-nav-wrap {
     top: 12px !important;
-    bottom: auto !important;
   }
 
   .sa-unified-center {

@@ -6,8 +6,9 @@
                 "hero": {
                     "type": "hero",
                     "properties": {
-                        "title": "OnlySkills products made better",
-                        "subtitle": null,
+                        "title": "OnlySkills",
+                        "subtitle": "Premium products at the best prices — instant delivery and fast support, anytime.",
+                        "video_url": "/assets/video.mp4",
                         "cta": "/#products",
                         "cta_text": "Explore Products",
                         "show_searchbar": false,

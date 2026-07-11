@@ -7,82 +7,84 @@
 {% set supportHref = (configuredSupportUrl if configuredSupportUrl else ('/customer/tickets' if shop_customer else '/?login=1&back=tickets')) | shopUrl %}
 {% set customerPanelHref = (configuredCustomerPanelUrl if configuredCustomerPanelUrl else '/customer/dashboard') | shopUrl %}
 
-<nav class="ux-navbar component sa-unified-nav" data-component-id="navbar" x-data="{ mobileOpen: false }">
-  <div class="sa-unified-shell">
-    <a href="{{ logoHref }}" class="sa-unified-logo">
-      {% if shop.image_url %}
-        <img src="{{ shop.image_url }}" alt="{{ shop.name }}">
-      {% else %}
-        <span class="sa-unified-logo-fallback">{{ shop.name }}</span>
-      {% endif %}
-    </a>
-
-    <div class="sa-unified-center d-none d-md-inline-flex">
-      <a href="{{ '/' | shopUrl }}" class="sa-unified-center-link {{ 'active' if isLandingPage }}">
-        <i class="fa-solid fa-house"></i>
-        <span>Home</span>
-      </a>
-      <a href="{{ '/products' | shopUrl }}" class="sa-unified-center-link {{ 'active' if isProductsPage }}">
-        <i class="fa-solid fa-box"></i>
-        <span>Products</span>
-      </a>
-      <a href="{{ '/status' | shopUrl }}" class="sa-unified-center-link {{ 'active' if isStatusPage }}">
-        <i class="fa-solid fa-wave-square"></i>
-        <span>Status</span>
-      </a>
-      <a href="{{ supportHref }}" class="sa-unified-center-link">
-        <i class="fa-solid fa-circle-question"></i>
-        <span>Support</span>
-      </a>
-    </div>
-
-    <div class="sa-unified-actions">
-      <a href="{{ '/products' | shopUrl }}" class="sa-unified-icon-btn" aria-label="Search products">
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </a>
-
-      {% if not global.components.navbar.hide_cart %}
-      <a href="{{ '/cart' | shopUrl }}" class="sa-unified-icon-btn" title="Cart" aria-label="Cart">
-        <i class="fa-solid fa-cart-shopping"></i>
-        <template x-if="appCart.countWithQuantities > 0">
-          <span class="sa-unified-count">
-            <span x-text="appCart.countWithQuantities > 9 ? '9+' : appCart.countWithQuantities"></span>
-          </span>
-        </template>
-      </a>
-      {% endif %}
-
-      <button type="button" class="sa-unified-icon-btn sa-unified-menu-btn d-md-none" @click="mobileOpen = !mobileOpen" :aria-expanded="mobileOpen ? 'true' : 'false'" aria-label="Toggle navigation">
-        <i class="fa-solid fa-bars" x-show="!mobileOpen"></i>
-        <i class="fa-solid fa-xmark" x-show="mobileOpen" x-cloak></i>
-      </button>
-
-      {% if not global.components.navbar.hide_customer_dashboard %}
-        {% if configuredCustomerPanelUrl %}
-          <a href="{{ customerPanelHref }}" class="sa-unified-panel-btn d-none d-md-inline-flex">
-            <span>Customer Panel</span>
-            <i class="fa-solid fa-arrow-right"></i>
-          </a>
+<div class="sa-unified-nav-wrap" x-data="{ mobileOpen: false }">
+  <nav class="ux-navbar component sa-unified-nav" data-component-id="navbar">
+    <div class="sa-unified-shell">
+      <a href="{{ logoHref }}" class="sa-unified-logo">
+        {% if shop.image_url %}
+          <img src="{{ shop.image_url }}" alt="{{ shop.name }}">
         {% else %}
-          {% if shop_customer %}
+          <span class="sa-unified-logo-fallback">{{ shop.name }}</span>
+        {% endif %}
+      </a>
+
+      <div class="sa-unified-center d-none d-md-inline-flex">
+        <a href="{{ '/' | shopUrl }}" class="sa-unified-center-link {{ 'active' if isLandingPage }}">
+          <i class="fa-solid fa-house"></i>
+          <span>Home</span>
+        </a>
+        <a href="{{ '/products' | shopUrl }}" class="sa-unified-center-link {{ 'active' if isProductsPage }}">
+          <i class="fa-solid fa-box"></i>
+          <span>Products</span>
+        </a>
+        <a href="{{ '/status' | shopUrl }}" class="sa-unified-center-link {{ 'active' if isStatusPage }}">
+          <i class="fa-solid fa-wave-square"></i>
+          <span>Status</span>
+        </a>
+        <a href="{{ supportHref }}" class="sa-unified-center-link">
+          <i class="fa-solid fa-circle-question"></i>
+          <span>Support</span>
+        </a>
+      </div>
+
+      <div class="sa-unified-actions">
+        <a href="{{ '/products' | shopUrl }}" class="sa-unified-icon-btn" aria-label="Search products">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+
+        {% if not global.components.navbar.hide_cart %}
+        <a href="{{ '/cart' | shopUrl }}" class="sa-unified-icon-btn" title="Cart" aria-label="Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <template x-if="appCart.countWithQuantities > 0">
+            <span class="sa-unified-count">
+              <span x-text="appCart.countWithQuantities > 9 ? '9+' : appCart.countWithQuantities"></span>
+            </span>
+          </template>
+        </a>
+        {% endif %}
+
+        <button type="button" class="sa-unified-icon-btn sa-unified-menu-btn d-md-none" @click="mobileOpen = !mobileOpen" :aria-expanded="mobileOpen ? 'true' : 'false'" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars" x-show="!mobileOpen"></i>
+          <i class="fa-solid fa-xmark" x-show="mobileOpen" x-cloak></i>
+        </button>
+
+        {% if not global.components.navbar.hide_customer_dashboard %}
+          {% if configuredCustomerPanelUrl %}
             <a href="{{ customerPanelHref }}" class="sa-unified-panel-btn d-none d-md-inline-flex">
               <span>Customer Panel</span>
               <i class="fa-solid fa-arrow-right"></i>
             </a>
           {% else %}
-            <button type="button" data-bs-toggle="modal" data-bs-target="#customer-login-modal" class="sa-unified-panel-btn d-none d-md-inline-flex">
-              <span>Customer Panel</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </button>
+            {% if shop_customer %}
+              <a href="{{ customerPanelHref }}" class="sa-unified-panel-btn d-none d-md-inline-flex">
+                <span>Customer Panel</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            {% else %}
+              <button type="button" data-bs-toggle="modal" data-bs-target="#customer-login-modal" class="sa-unified-panel-btn d-none d-md-inline-flex">
+                <span>Customer Panel</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            {% endif %}
           {% endif %}
         {% endif %}
-      {% endif %}
+      </div>
     </div>
-  </div>
+  </nav>
 
   <div
     class="sa-unified-mobile"
-    x-show.important="mobileOpen"
+    x-show="mobileOpen"
     x-transition.opacity.duration.200ms
     @click.self="mobileOpen = false"
     @keydown.escape.window="mobileOpen = false"
@@ -129,4 +131,4 @@
       {% endif %}
     </div>
   </div>
-</nav>
+</div>

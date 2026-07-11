@@ -3,9 +3,12 @@ git commit -m "update website"
 git push origin main
 
 
-ssh root@82.165.182.243
+ssh root@87.106.171.154
 cd /var/www/hollowxyz
 git pull origin main
 npm ci
 npm run build
 pm2 restart hollowxyz
+0wSicu3tTbS4lk
+cd /var/www/onlyskills
+pm2 restart onlyskills
