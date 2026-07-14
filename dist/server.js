@@ -1697,7 +1697,7 @@ async function createContext(req, templateName, routeData) {
     name: "Theme Preview Shop",
     url: SELLAUTH_SHOP_URL || `http://localhost:${PORT}`,
     image_url: "/assets/hero.jpg",
-    favicon_url: "/assets/hero.jpg",
+    favicon_url: "/assets/logo.ico",
     background_image_url: "",
     meta_title: "Theme Preview Shop",
     meta_description: "Local preview for Nunjucks theme.",
