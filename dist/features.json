@@ -140,50 +140,50 @@
         }
       ]
     },
-    "293256": {
-      "features": [
-        {
-          "title": "Aimbot & Recoil Control",
-          "items": [
-            "Enable External Aimbot Customization",
-            "Recoil Control System Assistance",
-            "Target Bone Priority Selection",
-            "Adjustable Aim Smooth Sliders",
-            "Custom Hotkey Input Mapping"
-          ]
-        },
-        {
-          "title": "Player ESP Visuals",
-          "items": [
-            "2D Corner & Filled Boxes",
-            "Skeleton Bone Structure Tracking",
-            "Agent Name & Distance Overlays",
-            "Health & Shield Status Bars",
-            "Visible & Invisible Color Coding"
-          ]
-        },
-        {
-          "title": "Tactical Awareness",
-          "items": [
-            "Moveable Radar Minimap Display",
-            "Off-Screen Enemy Warning Arrows",
-            "LineUp Helper & Placement Assist",
-            "Traps & Enemy Objective ESP",
-            "Dormant & Target Visibility Checks"
-          ]
-        },
-        {
-          "title": "System & Settings",
-          "items": [
-            "StreamProof AntiStream Overlay Mode",
-            "Profile Config Save & Load",
-            "Panic Key Instant Emergency Unload",
-            "Unique HVCI Injection Security Methods",
-            "Screen Custom Crosshair & VSync"
-]
-        }
-      ]
-    },
+  "293256": {
+    "features": [
+      {
+        "title": "Aimbot & Recoil Control",
+        "items": [
+          "Enable / Disable Aimbot & Custom FOV",
+          "Recoil Control System & Smooth Sliders",
+          "Target Bone Priority & Lock Position",
+          "Visible Check Target Verification",
+          "Custom Hotkey Input Mapping"
+        ]
+      },
+      {
+        "title": "Player ESP & Visuals",
+        "items": [
+          "Corner, 2D & 3D Box Visuals",
+          "Skeleton & Head Circle Tracking",
+          "Health & Shield Status Bars",
+          "Agent Name, Distance & Weapon ESP",
+          "Visible & Invisible Color Coding"
+        ]
+      },
+      {
+        "title": "Tactical & Map Awareness",
+        "items": [
+          "Minimap Radar & Off-Screen Enemy ESP",
+          "Lineup Helper & Placement Assist",
+          "Spike Info & Agent Abilities Tracking",
+          "Dormant & Target Visibility Checks",
+          "Snapline Direction & Position Indicators"
+        ]
+      },
+      {
+        "title": "Unlocks & System Settings",
+        "items": [
+          "Unlock All Skins & Skin Finisher Mode",
+          "Custom Menu Key & Toggle Controls",
+          "Profile Config Save & Load System",
+          "StreamProof Anti-Stream Overlay Mode",
+          "Emergency Panic Key Instant Unload"
+        ]
+      }
+    ]
+  },
     "293259": {
       "features": [
         {

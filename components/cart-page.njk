@@ -83,7 +83,7 @@
                           </template>
                         </div>
 
-                        <div class="cart-item-controls">
+<div class="cart-item-controls">
                           <div class="cart-quantity-controls">
                             <button
                               type="button"
@@ -93,11 +93,14 @@
                             >
                               <svg xmlns="http://www.w3.org/2000/svg" class="cart-qty-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M6 13q-.425 0-.712-.288T5 12t.288-.712T6 11h12q.425 0 .713.288T19 12t-.288.713T18 13z"/></svg>
                             </button>
-                            <input
-                              type="number"
-                              x-model.number="cartItem.quantity"
-                              class="form-control text-center border-0 cart-qty-input"
-                            />
+<input
+  type="number"
+  x-model.number="cartItem.quantity"
+  @input="changeQuantity(index, cartItem.quantity)"
+  @blur="changeQuantity(index, cartItem.quantity)"
+  @keydown.enter.prevent="changeQuantity(index, cartItem.quantity)"
+  class="form-control text-center border-0 cart-qty-input"
+/>
                             <button
                               type="button"
                               @click="changeQuantity(index, cartItem.quantity + 1)"
@@ -294,6 +297,7 @@
         const item = this.fullCart[index];
         
         const max = item.variant.quantity_max || 10000;
+        const stock = Number.isFinite(item.variant.stock) ? item.variant.stock : max;
 
         if (item.variant.stock === 0) {
           return 0;
@@ -307,20 +311,28 @@
           return max;
         }
 
-        return Math.min(max, item.variant.stock);
+        return Math.min(max, stock);
       },
+changeQuantity: function (index, quantity, save = true) {
+  console.log('changeQuantity called', { index, quantity, save });
+  const item = this.fullCart[index];
+  const min = this.getMinQuantity(index);
+  const max = this.getMaxQuantity(index);
+  const parsedQuantity = parseInt(quantity, 10);
+  const newQuantity = Number.isFinite(parsedQuantity)
+    ? Math.min(Math.max(min, parsedQuantity), max)
+    : min;
 
-      changeQuantity: function (index, quantity) {
-        const min = this.getMinQuantity(index);
-        const max = this.getMaxQuantity(index);
-        const newQuantity = Math.min(Math.max(min, quantity), max);
+  this.fullCart[index].quantity = newQuantity;
 
-        const item = this.fullCart[index];
-
-        this.fullCart[index].quantity = newQuantity;
-        this.appCart.editQuantity(item.variantId, newQuantity);
-      },
-
+  if (save) {
+    const variantId = item.variantId || item.variant?.id;
+    if (variantId != null) {
+      console.log('editing appCart quantity', { variantId, newQuantity });
+      this.appCart.editQuantity(variantId, newQuantity);
+    }
+  }
+},
       removeItem: function (index) {
         const item = this.fullCart[index];
 
