@@ -10,7 +10,15 @@
       >
         <i class="fa-solid fa-minus"></i>
       </button>
-      <span x-text="quantity"></span>
+      <input
+        type="number"
+        x-model.number="quantity"
+        :min="minQuantity"
+        :max="maxQuantity"
+        @change="normalizeQuantity"
+        class="sa-qty-input"
+        aria-label="Quantity"
+      >
       <button
         @click="changeQuantity(quantity + 1)"
         type="button"
