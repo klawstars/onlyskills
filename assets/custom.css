@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --ux-glass-bg: rgba(24, 10, 10, 0.85);
   --ux-glass-border: rgba(217, 74, 74, 0.15);
   --ux-glass-border-hover: rgba(217, 74, 74, 0.35);
@@ -5611,12 +5611,21 @@ footer.footer {
   opacity: 0.35;
 }
 
-.sa-qty-inline > span {
+.sa-qty-inline > span,
+.sa-qty-input {
   width: 2.2rem;
   text-align: center;
   color: #fff;
   font-size: 0.95rem;
   font-weight: 700;
+}
+
+.sa-qty-input {
+  height: 2.2rem;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
 }
 
 .sa-variant-grid {
